@@ -1,0 +1,147 @@
+resumo lateX
+
+\ invetida para dar um comando,
+existem comandos que necessitam de chaves{}, como parametros obrigátoria.
+comandos opcionais ficam entre colchetes[].
+
+documento LateX é constituido de um preambulo(configurações) + texto.
+
+todo texto fica entre um ambiente document, parecido com o html.
+
+\begin{document}
+
+%texto
+
+hello world :)
+
+\end{document}
+
+o que estiver antes do begin é considerado preambulo
+
+%exemplo de preambulo
+\documentclass{article}
+
+para inserir comentários usaremos '%' no inicio
+
+\documentclass é obrigatorio no preambulo
+
+
+\documentclass[opcoes]{estilo}
+função -> especificar o tipo de documento
+estilo -> article, report, book, letter...
+opcoes -> layout, tamanho da fonte, ...
+
+exemplo: \documentclass[12pt, A4]{report}
+
+ambiente é uma região do texto que possui tratamento especial.
+exemplo : textos em negrito e italico.
+
+
+criamos ambientes usando \begin{ambiente} e \end{ambiente}
+e dentro dele um texto.
+
+
+pacotes são inseridos no preâmbulo usando o comando \usepackage{nome_do_pacote}
+
+pacotes habilitam certos comandos.
+
+
+\usepackage[brazil]{babel} , ultiliza a opcão de lingua brasileira
+\usepackage{graphicx,colo} incluir figuras e colorir textos.
+\usepackage[utf8]{inputenc} define uma codificação para os caracteres brasileiros com acentos.
+
+------------------------------------------------------
+não vai deixar que voce de mais de um espacamento tanto na horizontal quanto na vertical.
+
+para 
+
+\LateX{} cria o simbolo bunito do LateX no texto.
+
+usar \\ ou \newline faz uma quebra de linha.
+
+
+--------------------------------------------------------------
+divisões
+\pretextualchapter{titulo} - cria capitulo não numerado 
+\chapter*{titulo} equivale ao comando acima
+
+\chapter{titulo} - cria capitulo
+\section{titulo} - cria uma seção
+\subsection{titulo} - cria uma subseção
+\subsubsection{titulo} - cria uma subsubseção
+
+--------------------------------------------
+podemos usar o comando 
+\input{nome_do_arquivo} 
+para inserir documentos externos.
+
+exemplo de programa com input 
+\documentclass{article}
+\begin{document}
+
+\input{capitulo1.txt}
+\input{capitulo2.txt}
+\input{capitulo3.txt}
+
+\end{document}
+--------------------------------------------
+mudar o tipo do texto 
+
+romano 	\textrm{texto} 
+máquina de escrever 	\texttt{texto}
+itálico 	\textit{texto}
+sem serifa 	\textsf{texto}
+negrito 	\textbf{texto} , acho q foi isso que eu ouvi
+----------------------------------------------
+tamanho do texto 
+
+\tiny 		demasiado pequeno
+\scriptsize 	texto muito pequeno
+\footnotesize	razoavel pequeno
+\small		pequeno
+\normalsize		normal
+\large		pouco grande
+\Large		grande
+\LARGE		muito grande
+\huge			demasiado grande
+\Huge			gigante
+\HUGE			não existe kkkkkkkkk, chega
+
+-----------------------------------------
+usualmente faremos assim 
+
+\begin{document}
+\large
+	texto \\
+\normalsize
+	texto 
+	\newline
+\tiny
+	texto
+\end{document}
+
+caso não dermos comando para nova linha ele fica em linha com a letra alterada.
+----------------------------------------------
+alinhamento
+
+\begin{flushleft}
+	texto, no caso alinhamento a esquerda
+\end{flusleft}
+
+
+\begin{center}
+	texto, no caso alinhamento ao centro
+\end{center}
+
+
+\begin{flushright}
+	texto, no caso alinhamento a direita
+\end{flusright}
+
+
+
+
+
+
+
+
