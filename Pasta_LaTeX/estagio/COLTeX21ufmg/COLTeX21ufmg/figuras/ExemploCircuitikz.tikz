@@ -1,0 +1,66 @@
+%%------------------------------------------------------------------- %%
+%  fig:ExemploCircuiTikz
+% Diagrama em esquemático de um  filtro  analógico RC
+%
+%  --- Anisio R. Braga, COLTEC-UFMG
+%  --- 2021/01/25
+%---------------------------------------------------------------------
+%--- Template
+\tikzset{blockdef/.style={% bloque
+		{Straight Barb[harpoon, reversed, right, length=0.2cm]}-{Straight Barb[harpoon, 
+			reversed, left, length=0.2cm]},blue!50!gray}} 
+%------------------------------------------------------------
+\scalebox{1}{% Envelope para redimensionar
+	\begin{circuitikz}[scale=1, transform shape, cute inductors]
+		\ctikzset{resistors/scale=0.7,  capacitors/scale=0.7, inductors/scale=0.8,diodes/scale=0.5}
+		\ctikzset{american open voltage=legacy}
+		\tikzstyle{bkgbox}=[draw, rectangle, inner sep=25pt, densely dotted, rounded corners=1mm, 
+		teal, color=teal!50!gray,thick, fill=teal!5]
+		% --- Gridlines
+		\def\Xgrid{7}   	\def\Ygrid{5} 
+		%	\draw[step=2mm] [help lines, black!10]  (-\Xgrid,-\Ygrid) grid (\Xgrid,\Ygrid);
+		%	\draw[step=10mm] [help lines, blue!30]  (-\Xgrid,-\Ygrid) grid (\Xgrid,\Ygrid);
+		%	\foreach \x in {-\Xgrid, ...,\Xgrid} \node at (\x,-\Ygrid) [below,font=\scriptsize] {\x}; 
+		%	\foreach \x in {-\Xgrid, ...,\Xgrid} \node at (\x,\Ygrid) [above,font=\scriptsize] {\x}; 
+		%	\foreach \y in {-\Ygrid, ...,\Ygrid} \node at (-\Xgrid,\y) [left,font=\scriptsize] {\y}; 
+		%	\foreach \y in {-\Ygrid, ...,\Ygrid} \node at (\Xgrid,\y) [right,font=\scriptsize] {\y}; 
+		\node at (0,4)[align=center, font=\large] {CircuiTikZ's Template};
+		
+		% --- Definitions -----------
+		\def\dx{2}	\def\dy{2}
+		%---------------------------
+		
+		%--- Circuito interno
+		\draw[]  (0,0) \coord(a2) to[open] ++(0,\dy)\coord(a1)
+		(a1)   to[R, l=$R$] ++(\dx,0)\coord(b1)
+		(b1)   to[C, l_=$C$,-*] ++(0,-\dy)\coord(b2)
+		(b2)   to[short] (a2);
+		
+		\node at (b2) [ground, label={[shift={(0.5,-0.5)}] \SI{0}{\volt} }] {};
+		%--- Terminais
+		\draw[]    (a1)   to[short,-o] ++(-0.75*\dx,0)\coord(a11)
+		(a2)   to[short,-o] ++(-0.75*\dx,0)\coord(a21);
+		
+		\draw[]    (b1)   to[short,*-o] ++(0.75*\dx,0)\coord(b11)
+		(b2)   to[short,-o] ++(0.75*\dx,0)\coord(b21);
+		
+		% --- Correntes
+		\draw[icolor, color=icolor]    (a11)   to[open,f =$i$] (a1);
+		% --- Probes
+		\probe[azul]{a11}[-180:0.35]{A}[$1$]
+		\probe[black]{a21}[-180:0.35]{Ci}[$-$]
+		
+		\probe[laranja]{b11}[0:0.35]{B}[$2$]
+		\probe[black]{b21}[0:0.35]{Co}[$-$]
+		% --- Voltímetros
+		\draw[european, icolor, color=icolor] (A) to[open, v=$V_{1}$,voltage/european label distance =-1.75] (Ci);
+		\draw[european, vcolor, color=vcolor] (B) to[open, v^=$V_{2}$,voltage/european label distance =-1.75] (Co);
+		% --- bloque
+		\draw [blockdef] ($(a2)+(-1,-1.25)$) -- node[midway, fill=white,align=center,font=\scriptsize]{Filtro\\ Passa-Baixas} ($(b2)+(1,-1.25)$);
+		% --- Destacando blocos de circuito no background
+		\begin{pgfonlayer}{background}       
+			\node[fit=(a2) (a1)  (b1) (b2),bkgbox, gray, fill=teal!5]{};
+		\end{pgfonlayer}
+		%-------------------------------------------------
+	\end{circuitikz}
+}% fim do scalebox

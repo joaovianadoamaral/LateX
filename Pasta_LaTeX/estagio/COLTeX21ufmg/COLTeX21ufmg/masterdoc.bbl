@@ -1,0 +1,68 @@
+\begin{thebibliography}{}
+
+\bibitem[Astrom, 1997]{Astrom:1997}
+Astrom, Karl J.and~Wittenmark, B. (1997).
+\newblock {\em Computer-Controlled Systems : Theory and Design}.
+\newblock Prentice Hall Information and System Sciences Series). Prentice-Hall,
+  3rd edition.
+
+\bibitem[Astrom, 1970]{Astrom:1970}
+Astrom, K.~J. (1970).
+\newblock {\em Introduction to Stochastic Control Theory}.
+\newblock Academic Press, New York.
+
+\bibitem[Braga, 2010]{BragaAR2019}
+Braga, A.~R. (2010).
+\newblock Notas de aula de instrumentação eletrônica aplicada.
+\newblock Relatório Interno NAIEA2010-21, Colégio Técnico da UFMG.
+
+\bibitem[Braga, 2021]{bragaAR2021}
+Braga, A.~R. (2021).
+\newblock Recomendações para elaborar relatório técnico ou monografia.
+\newblock Gabarito de Relatório Técnico NT2018-21, Colégio Técnico da UFMG.
+
+\bibitem[Horowitz and Hill, 2015]{Horowitz:1981307}
+Horowitz, P. and Hill, W. (2015).
+\newblock {\em {The art of electronics; 3rd ed.}}
+\newblock Cambridge University Press, Cambridge.
+
+\bibitem[Instruments, 2010]{multisim2010}
+Instruments, N. (2010).
+\newblock {\em NI Multisim for education}.
+\newblock National Instruments, Electronics Workbench Group.
+\newblock 374484F-01.
+
+\bibitem[{JabRef Development Team}, 2021]{JabRef2021}
+{JabRef Development Team} (2021).
+\newblock Jabref --- an open-source, cross-platform citation and reference
+  management software.
+
+\bibitem[Kottwitz, 2015]{LatexCookbook}
+Kottwitz, S. (2015).
+\newblock {\em Latex Cookbook}.
+\newblock PACKT Publishing.
+
+\bibitem[Markel, 1994]{Markel1994}
+Markel, M. (1994).
+\newblock {\em Writing in the technical fields: a step-by-step guide for
+  engineers, scientists, and technicians}.
+\newblock IEEE Press.
+
+\bibitem[Mathworks, 2019]{Matlab}
+Mathworks (2019).
+\newblock https://www.mathworks.com.
+
+\bibitem[Redaelli et~al., 2019]{circuitikz}
+Redaelli, M.~A., Lindner, S., Erhardt, S., and Giannetti, R. (2019).
+\newblock {\em CircuiTikz}.
+
+\bibitem[Signorelli et~al., 2001]{Signorelli2001}
+Signorelli, V.~I., Grellet, V., and Scarpa, R. (2001).
+\newblock Porque trabalhar com projetos.
+\newblock {\em Revista Nova Escola}, 146.
+
+\bibitem[Tantau, 2019]{pgftikz}
+Tantau, T. (2019).
+\newblock {\em The Tikz and PGF Package}.
+
+\end{thebibliography}

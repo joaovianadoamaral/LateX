@@ -1,0 +1,143 @@
+% !TEX encoding = UTF-8 Unicode
+\graphicspath{{figuras/}}
+
+\chapter{Introdução \label{cap1}}
+
+O Relatório Técnico Final é um documento em que o leitor encontra  as informações técnicas sobre o trabalho desenvolvido. Uma excelente bibliografia sobre redação técnica é \cite{Markel1994}. Recomenda-se  estruturar relatório técnico, monografia, dissertação  ou tese em  6 capítulos\footnote{A escolha de 6 capítulos é parcimoniosa, mas não é uma regra rígida, apenas uma recomendação para orientar a organização de um relato técnico.} como descrito na Seção~\ref{sec:Descricao_Atividades}. 
+
+Por favor, não se esqueça do óbvio:
+\begin{itemize}
+	\item  \textsc{\color{red!50!black} Todas as figuras e tabelas tem que ser identificadas com legenda adequada e serem referenciadas no corpo do texto}.
+	\item Todo texto técnico tem que citar referências bibliográficas (livros, artigos, manuais), folhas de dados, sites de Internet, etc. Citar somente sites de internet é trabalho visto como meio joça!
+	\item Os títulos dos capítulos tem que ser escolhidos de forma a descrever o assunto e/ou proposta descritos naquele capítulo. Logo, ninguém merece ler um texto cujo  título do capítulo é \textbf{\textsc{Metodologia}}.
+\end{itemize} 
+
+O \LaTeX  \, é recomendado exatamente para facilitar e organizar o trabalho de editoração  profissional: formatação consistente de partes do texto, referências cruzadas, edição de equações, etc. Além disso, o \LaTeX \, é agradável aos olhos daqueles que apreciam a beleza de uma diagramação de texto profissional. O resto (MSWord, GoogleDocs, WordPerfect, WordStar e  Chiwriter (seu avô conheceu isso!), etc.) é editor \emph{joça} no caso de textos  técnicos!
+
+
+
+\paragraph{Um relatório deve conter os seguintes tópicos:}
+
+\begin{itemize}
+\item {\bf Capa ou página de título: } deve conter o nome da instituição, o título (e subtítulo) do projeto, os autores e supervisores, local e data. O título é considerado o resumo mais sintético do projeto e, portanto, é imprescindível que inclua o assunto ou o tópico e a proposta do mesmo. Verifique ainda se o título é: suficientemente preciso, fácil para ler e entender, e  estruturado para o tema e a audiência. 
+
+\item {\bf Contra-capa: } mesma informação da capa mais as assinaturas dos autores ou, como no caso do relatório técnico de estágio  do COLTEC, é uma página com os dados do estagiário, local de estágio, etc.
+
+\item {\bf Sumário: } Enumeração das principais divisões (capítulo, seções, artigos, etc.) do documento, na mesma ordem em que a matéria nele se sucede; visa a facilitar visão do conjunto da obra e a localização de suas partes, e, para tanto, deve aparecer no início da publicação e indicar, para cada parte, a paginação (Dicionário Aurélio, 1999).
+
+\item {\bf Abstract:} é um resumo sucinto do trabalho que serve como um guia para a leitura do relatório. A leitura do \emph{Abstract} deve indicar se vale ou não a pena ler o relatório. 
+O abstract pode ser de dois tipos:
+
+\begin{itemize}
+  \item Abstract descritivo que responde a questão: qual é o escopo do relatório?
+  
+  \item Abstract informativo que responde a questão: quais são os pontos mais importantes apresentados no relatório.
+\end{itemize}
+
+\item {\bf Introdução:} uma introdução bem escrita deve abordar os seguintes itens:
+  \begin{itemize}
+  	\item o assunto
+  	\item a proposta ou proposição
+	\item Objetivos: 
+	Enumere uma lista com bullets. Recomenda-se iniciar os itens com verbos no infinitivo. É imperativo manter o paralelismo de linguagem, i.e. se o primeiro item inicia-se com um verbo no infinitivo, todos os demais itens devem também iniciar com verbos no infinitivo!
+
+  	\item o "background" ou fundamentos do projeto
+  	\item o escopo
+  	\item a organização do relatório
+ 	 \item os termos chaves
+  \end{itemize}
+	
+  \item {\bf Descrição da metodologia:} descreva os métodos usados para executar o projeto. {\color{red!50!gray}\textsc{Evite nomear  título de capítulo simplesmente com o termo: }} \textbf{Metodologia}! Pense e forneça um título que descreva \emph{assunto} e \emph{proposta} para aquele capítulo, ou pelo menos um dentre estes dois itens quando um ficar implícito ou subentendido.
+  
+  \item {\bf Apresentação e análise de resultados}
+  \item {\bf Conclusões:} conclua baseado nos resultados apresentados, comentando todos os objetivos propostos.
+  \item {\bf Sugestões e recomendações}
+  \item {\bf Apêndices:} nomenclatura utilizada (vide exemplo) e material de suporte ou complementação do corpo do relatório, e.g. diagramas de circuitos, códigos de programas desenvolvidos, etc.
+  \item {\bf Referências bibliográficas}.
+\end{itemize}
+
+
+\section{Dicas para o Relatório Técnico de Estágio Curricular}
+
+\subsection{Local do estágio}
+Descreva o seu local de estágio, e.g.:
+As atividades de estágio foram  desenvolvidas na empresa (ou Laboratório) [Nome do Empresa] (Empresa, \figref{fig:LEICCOLTECUFMG}) - sala 220, localizado no COLTEC-UFMG.  
+O LEIC é um laboratório de ensino e desenvolvimento tecnológico voltado para trabalhos na área de instrumentação, eletrônica, controle de processos e automação industrial. O espaço do LEIC inclui área de trabalho equipada com computadores, bancada de trabalho com ferramentas e instrumentos de medição para montagem e testes de circuitos eletrônicos, e.g. osciloscópio, fontes de alimentação ajustáveis, estações de retrabalho para soldagem e dessoldagem, etc.
+
+\begin{figure} [h!]
+	\centering
+	\includegraphics[width=0.55\linewidth]{figuras/LEIC_COLTECUFMG}
+	\caption{Foto do Laboratório LEIC-COLTEC-UFMG.}
+	\label{fig:LEICCOLTECUFMG}
+\end{figure}
+
+
+\section{Tema e oportunidades do estágio técnico}
+
+Descrever o  tema do trabalho desenvolvido e as motivações técnicas relevantes.
+\begin{enumerate}[noitemsep] %noitemsep serve para reduzir o espaço em listas. Use se precisar reduzir o número d epáginas  no texto.
+	\item Assunto e proposta do estágio técnico.
+	\item Justificativa breve do tema e oportunidade do estágio
+\end{enumerate}
+
+\subsection{Objetivos}
+Dentre os objetivos deste trabalho, tem-se:\footnote{Enumere mantendo paralelismo de linguagem.   Neste caso sugere-se com o paralelismo de linguagem iniciar sempre com um verbo no infinitivo.}
+\begin{itemize}[noitemsep]
+	\item reconhecer e lidar com ...
+	\item estudar  técnicas de ...;
+	\item projetar ...;
+	\item analisar, montar e testar...
+	\item realizar manutenção
+	
+\end{itemize}
+Em suma, almeja-se... \arb{Descreva o resultado esperado de maior impacto}.
+
+\section{Ferramentas  utilizadas}
+Para desenvolver as atividades previstas no estágio, geralmente, são recomendados o estudo e a utilização de ferramentas ou aplicativos de software. Estas ferramentas  devem ser citadas com breve descrição como ilustrado a seguir:
+
+\begin{itemize}
+	\item \LaTeX \, (\cite{LatexCookbook}):  sistema gratuito de composição tipográfica e de formatação de documentos técnicos profissionais baseado no \TeX. O \TeX é um meio sofisticado e popular de composição tipográfica de fórmulas matemáticas complexas que utiliza  arquivos de entrada  de apenas texto simples. Este relatório técnico foi editado usando os recursos do \LaTeX.
+	\item PGF/TikZ (\cite{pgftikz}):  pacotes do \LaTeX  \, dedicados para a produção de desenhos e diagramas a partir de descrições programáticas algébricas e geométricas.
+	\item CircuiTikz (\cite{circuitikz}):   pacote do \LaTeX   \, que fornece um conjunto de macros para desenhar  circuitos elétricos e eletrônicos incrementando os modelos gráficos do pacote TikZ.
+	\item Matlab (\cite{Matlab}): ambiente de área de trabalho ajustado para análise interativa e processos de design combinado com uma linguagem de programação que expressa diretamente matemática envolvendo matrizes e vetores.
+	\item Multisim (\cite{multisim2010}):  ambiente de simulação SPICE padrão da indústria e software de projeto de circuitos para o ensino e pesquisa de eletrônica digital, analógica e de potência.
+	\item Ultiboard:  software de layout e projeto de placa de circuito impresso que se integra perfeitamente ao Multisim para acelerar o desenvolvimento de protótipos de PCBs.
+\end{itemize}
+
+
+\section{Contribuições ou atividades desenvolvidas}\label{sec:Descricao_Atividades}
+
+As principais atividades (contribuições) apresentadas neste trabalho são destacadas abaixo para cada capítulo.
+
+\begin{itemize}
+
+  \item \textbf{Capítulo \ref{cap1}}. Neste capítulo são apresentadas ideias motivadoras, escopo do trabalho, objetivos gerais e específicos. No caso de relatório técnico ou monografia de graduação descreve-se também o local de realização do trabalho. Completa-se com alguma revisão bibliográfica e conclui-se descrevendo o que se apresenta no restante do relatório.
+  
+  \item \textbf{Capítulo \ref{cap2}}. Apresenta-se uma revisão  de conceitos e técnicas que subsidiam o desenvolvimento do trabalho. 
+  Pense neste capítulo como uma descrição tática (tática é um termo de origem militar que descreve o posicionamento de artefatos, objetos, tropas, para se desenvolver uma plano de combate, i.e. a estratégia.)  Por exemplo, pode-se enfocar aspectos de hardware neste capítulo e software no capítulo seguinte.
+  
+  Neste gabarito de relatório técnico apresentam-se algumas dicas de uso do \LaTeX.
+  
+  \item \textbf{Capítulo \ref{cap3}}. Apresenta-se uma revisão  de  estratégias que subsidiam o desenvolvimento do trabalho.   % Estratégia é um plano ou algoritmos usados para resolver determinado problema.
+  
+  Neste gabarito apresentam-se recomendações para elaboração de proposta de projeto.
+
+  \item \textbf{Capítulo \ref{cap4}}. Apresentam-se estudos de simulação de modelos dinâmicos de circuitos, sistemas, etc.
+  
+    Neste gabarito apresenta-se uma metodologia (modelos e procedimentos) para resolução de problemas em equipe ou com a supervisão de um orientador.
+  
+  \item \textbf{Capítulo \ref{cap5}}. Descreve-se a implementação de hardware ou software com resultados práticos comentados e reconciliados com  resultados de simulação do capitulo 4.
+  
+      Neste gabarito apresentam-se critérios comumente usados para avaliar um projeto orientado e um relatório técnico ou monografia. O conhecimento prévio  de critérios objetivos usados na avaliação de trabalhos orientados favorece o desenvolvimento focado em resultados, que almeja uma nota otimizada.
+  
+    \item \textbf{Capítulo \ref{cap6}}. Comentários finais, recomendações e sugestões de trabalhos futuros são apresentados.
+    Neste gabarito é  fornecido informações e orientações para se redigir uma conclusão adequadamente.
+    
+    \item \textbf{Apêndices}\footnote{É importante também incluir a nomenclatura e simbologia usados no texto. Neste gabarito foi inserido notação usual das áreas de instrumentação eletrônica e controle de processos.}. Informações adicionais que auxiliam a leitura deste trabalho, mas que não fazem parte do foco das atividades,    são fornecidas como apêndices.  
+  
+\end{itemize}
+
+
+\section{Comentários finais}
+
+Todos os capítulos devem ser concluídos com uma seção de \emph{Comentários Finais} em que são resumidas as principais ideias e fatos apresentados no capítulo. É uma forma elegante de ajudar o leitor  lembrar das ideias importantes para continuar a ler o texto. É importante lembrar que textos técnicos são normalmente lidos de forma não linear e a seção de comentários finais serve como resumo das principais ideias apresentadas no capítulo, servindo como um lembrete para uma transição suave para os capítulos seguintes. Uma característica relevante do ser humano é que, normalmente, as pessoas se recordam das duas últimas ideias lidas\footnote{Aprendi com o desembargador José Antônio Braga que um  juiz, normalmente, é altamente influenciado pelas  duas últimas afirmações de um processo antes de proferir uma sentença. Um engenheiro, não raramente, precisa se lembrar de 6 (seis) tópicos, que é considerado o número máximo que uma pessoa normal recorda!}. Assim sendo, ao escrever os comentários finais pense em duas ou três ideias que o leitor deve se lembrar ao final do capítulo! Obviamente, o último capítulo de Conclusões não carece de uma seção de comentários finais!

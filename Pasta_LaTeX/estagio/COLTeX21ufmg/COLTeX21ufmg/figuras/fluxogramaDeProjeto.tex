@@ -1,0 +1,94 @@
+%%------------------------------------------------------------------- %%
+%  fig:fluxogramaPrj
+% Fluxograma com as diversas etapas de um projeto (adaptado de Signorelli, V. I., Grellet, V. e Scarpa, R. (2001):
+%
+%  --- Anisio R. Braga, COLTEC-UFMG
+%  --- 2021/01/25
+%---------------------------------------------------------------------
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, 
+minimum height=1cm,text centered, draw=black]
+\tikzstyle{io2} = [trapezium, trapezium left angle=70, trapezium right angle=110, 
+minimum width=3cm, minimum height=1cm, text centered, draw=black]
+\tikzstyle{io} = [tape,tape bend top=none,minimum width=3cm, minimum height=1cm, text centered, draw=black]
+\tikzstyle{process} = [rectangle, minimum width=2.75cm, minimum height=1cm, 
+text centered, draw=black, align=center]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, 
+draw=black, align =center]
+\tikzstyle{dot}   = [fill,circle, inner sep=0mm, outer sep=0mm, minimum size=1mm]
+%------------------------------------------------------------
+\scalebox{0.75}{% Envelope para redimensionar
+	\begin{tikzpicture}[>=Triangle,node distance=2cm]
+		\tikzstyle{bkgbox}=[rectangle, inner sep=15 pt, densely dotted, rounded corners=1mm, 
+		teal, color=teal!50!gray,thick, fill=teal!5]
+		%---
+		\node at (0,0) (inicio) [startstop] {Projeto};
+		\node at (-5,-0.85)[dot](requer){};
+		\node (rh) [process, below of=requer, yshift=0.75cm] {Recursos\\ Humanos};
+		\node (meta1) [dot, below of=rh,, yshift=0.75cm]{};
+		\node (orc) [process, left of=rh, xshift=-1.25cm] {Orçamento};
+		\node (infra) [process, right of=rh, xshift=1.25cm] {Infraestrutura};
+		\node (ideias) [process, right of=infra, xshift=4cm,align=left] {$\bullet$ Ideias iniciais \\ $\bullet$ Sonhos, vontades e expectativas\\ $\bullet$ Problemas a serem resolvidos};
+		\node (Metas) [process, below of=meta1] {Metas};
+		\node (objetivos) at (inicio|-Metas)  [process] {Objetivos do\\ projeto};
+		\node (definem) at (ideias|-objetivos)  [process] {Definição};
+		\node (AvalIni) [decision,right of=definem, xshift=2cm] {Avaliação\\ Inicial};
+		\node (PubAlvo) [io,below of=definem, yshift=0.75cm] {Público\\ Alvo};
+		\node (permitem) [dot,below of=objetivos] {};
+		\node (AvalIni) [decision,right of=definem, xshift=2cm] {Avaliação\\ Inicial};
+		\node (plano)   [below of=permitem, regular polygon, regular polygon sides=6, minimum height=1cm, align=center,draw, inner sep=2pt,yshift=-0.25cm]{Plano \\ de ação};
+		\node (avalpermanente) at (Metas|-plano)  [decision] {Avaliação\\ permanente};
+		\node (corrigir) [dot,below of=avalpermanente] {};
+		\node (cronograma) [process,below of=plano, yshift=-2cm] {Cronograma};
+		\node (resultados) [io,below of=cronograma, yshift=-1cm, align=center] {Resultados\\ esperados};
+		\node (seq) at (plano.-30-|PubAlvo)[dot]{};
+		\path (seq) ++(0,-1.5)coordinate(seq2);
+		\node (seq3)[dot,below of=seq2, yshift=0.75cm] {};
+		\node (acoes)  [process,right of= seq2,xshift=0.5cm]{Ações};
+		\node  (atividades) [process,left of= seq2,,xshift=-0.5cm]{Atividades\\ preparatórias};
+		% --- conexões
+		\draw[-] (inicio) -| (requer) node[fill=white,pos=0.75,font=\scriptsize]{requer};
+		\draw[-] (inicio) -| (ideias) node[fill=white,pos=0.75,font=\scriptsize]{tem origem em};
+		\draw[->] (inicio) -- (objetivos) node[fill=white,pos=0.75, align=left,font=\scriptsize]{finaliza-se quando\\ são atingidos os};
+		\draw[->] (requer) -| (orc);
+		\draw[->] (requer) -| (rh);
+		\draw[->] (requer) -| (infra);
+		\draw[->] (rh) -- (meta1);
+		\draw[->] (orc) |- (meta1);
+		\draw[->] (infra) |- (meta1);
+		\draw[->] (meta1) -- (Metas) node[fill=white,pos=0.5,font=\scriptsize]{para se alcançarem as};
+		\draw[->] (Metas) -- (avalpermanente) node[fill=white,pos=0.5, align =center,font=\scriptsize]{devem ser \\ consideradas na};
+		\draw[->] (ideias) -| (AvalIni) node[fill=white,pos=0.75,font=\scriptsize]{levam a uma};
+		\draw[->] (definem) -- (objetivos);
+		\draw[->] (ideias) -- (definem);
+		\draw[->] (AvalIni)  -- (definem);
+		\draw[->] (definem) -- (PubAlvo);
+		\draw[->] (definem) -- (objetivos);
+		\draw[->] (objetivos) -- (Metas) node[fill=white,pos=0.5, text width=1.25cm, font=\scriptsize]{são concretizados em};
+		\draw[-] (objetivos) -- (permitem);
+		\draw[->] (AvalIni)  |- (permitem);
+		\draw[->] (permitem) -- (plano) node[fill=white,pos=0.5, font=\scriptsize]{permitem a construção de um};
+		\draw[->] (plano) -- (avalpermanente) node[fill=white,pos=0.5, text width=1.25cm, align=left, font=\scriptsize]{deve prever um\\ processo de};
+		\draw[->] (avalpermanente)--(corrigir) -| (plano.240) node[fill=white,pos=0.25, text width=2.5cm, font=\scriptsize]{permite corrigir o};
+		\draw[-] (plano) - | (seq) node[fill=white,pos=0.25, align=left, font=\scriptsize]{é uma \\ sequência de};
+		\draw[->] (seq)  -| (atividades);
+		\draw[->] (seq)  -| (acoes);
+		\draw[->] (avalpermanente)|-(cronograma)node[fill=white,pos=0.75,,font=\scriptsize]{Permite reavaliar};
+		\draw[->] (atividades)  -- (acoes) node[fill=white,pos=0.5, align=center,font=\scriptsize]{precedem};
+		\draw[->] (acoes)  |- (seq3);
+		\draw[->] (atividades)  |- (seq3);
+		\draw[->] (seq3)  |- (cronograma) node[fill=white,pos=0.75, align=center,font=\scriptsize]{devem estar\\ previstas no };
+		
+		\draw[->] (plano) -- (cronograma);
+		\draw[->] (cronograma)--(resultados) node[fill=white,pos=0.5, align=center,font=\scriptsize]{prevê a execução do trabalho\\  necessário para alcançar os};
+		
+		% --- Destacando blocos de circuito no background
+		\begin{pgfonlayer}{background}       
+			\node[fit=(avalpermanente) (resultados)  (acoes),bkgbox, gray,xshift=5pt,yshift=-5pt,draw, densely dashed, fill=azul!5]{};
+			\node[fit=(plano) (resultados)  (acoes),bkgbox,inner sep=7pt,draw,densely dotted, fill=white]{};
+			\node[font=\sffamily] at (7.5,-8) {\textbf{Metodologia}};
+			\node[font=\sffamily] at (6.65,-8.75) {\textbf{Plano de Trabalho}};
+		\end{pgfonlayer}
+		%----------------
+	\end{tikzpicture}
+	
+}% fim do scalebox

@@ -1,0 +1,83 @@
+\babel@toc {brazilian}{}\relax 
+\babel@toc {brazilian}{}\relax 
+\contentsline {chapter}{\numberline {1}Introdução }{1}{chapter.1}%
+\contentsline {paragraph}{Um relatório deve conter os seguintes tópicos:}{1}{section*.3}%
+\contentsline {section}{\numberline {1.1}Dicas para o Relatório Técnico de Estágio Curricular}{3}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Local do estágio}{3}{subsection.1.1.1}%
+\contentsline {section}{\numberline {1.2}Tema e oportunidades do estágio técnico}{3}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Objetivos}{3}{subsection.1.2.1}%
+\contentsline {section}{\numberline {1.3}Ferramentas utilizadas}{4}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Contribuições ou atividades desenvolvidas}{4}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Comentários finais}{5}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Dicas do \LaTeX }{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Por que \LaTeX ?}{6}{section.2.1}%
+\contentsline {section}{\numberline {2.2}O jeito \LaTeX \ de editar texto}{8}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Citações e referências cruzadas}{8}{subsection.2.2.1}%
+\contentsline {paragraph}{As citações de referências bibliográficas}{8}{section*.5}%
+\contentsline {paragraph}{Referências cruzadas}{9}{section*.6}%
+\contentsline {subsection}{\numberline {2.2.2}Comentários}{9}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Estilo de fontes para destacar texto}{9}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Espaços e mudança de linha}{10}{subsection.2.2.4}%
+\contentsline {paragraph}{Para inserir espaçamento horizontal no texto}{10}{section*.7}%
+\contentsline {paragraph}{Para inserir espaçamento vertical }{10}{section*.8}%
+\contentsline {paragraph}{As dimensões de comprimento}{10}{section*.9}%
+\contentsline {subsection}{\numberline {2.2.5}Listas}{11}{subsection.2.2.5}%
+\contentsline {section}{\numberline {2.3}Diferenciando formatação para matemática, texto, operadores ou funções}{12}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Expressões matemáticas estilo \emph {inline}}{12}{subsection.2.3.1}%
+\contentsline {paragraph}{\emph {Displaystyle}}{12}{section*.11}%
+\contentsline {subsection}{\numberline {2.3.2}Expressões matemáticas estilo \emph {equação}}{13}{subsection.2.3.2}%
+\contentsline {subsubsection}{ Índices, expoentes e caracteres delimitadores}{14}{section*.12}%
+\contentsline {subsubsection}{Arranjos e Matrizes}{14}{section*.13}%
+\contentsline {section}{\numberline {2.4}Figuras}{16}{section.2.4}%
+\contentsline {paragraph}{Como desenhar usando o \LaTeX ?}{21}{section*.25}%
+\contentsline {section}{\numberline {2.5}Edição e formatação de Sistemas de Unidades}{23}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Comentários finais}{24}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Recomendações para elaboração de proposta de projeto}{25}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Título do projeto}{27}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Autor e orientadores}{28}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Resumo}{28}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Objetivos}{28}{section.3.4}%
+\contentsline {paragraph}{Objetivos}{29}{section*.31}%
+\contentsline {section}{\numberline {3.5}Justificativa}{29}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Plano de Trabalho}{29}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Recursos financeiros e infraestratura}{30}{section.3.7}%
+\contentsline {paragraph}{Local do estágio ou realização do projeto}{30}{section*.34}%
+\contentsline {section}{\numberline {3.8}Resultados esperados}{32}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}Público Alvo}{33}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.2}Publicações}{33}{subsection.3.8.2}%
+\contentsline {section}{\numberline {3.9}Aprovação}{33}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Exemplos de tópicos de projetos}{34}{section.3.10}%
+\contentsline {section}{\numberline {3.11}Relatório de atividades}{36}{section.3.11}%
+\contentsline {section}{\numberline {3.12}Comentários finais}{36}{section.3.12}%
+\contentsline {chapter}{\numberline {4}Metodologia para resolução de problemas}{37}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Sete Passos para Resolver Problemas}{37}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Questões características de uma boa resolução de problemas}{38}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Métodos de divisão do problema}{39}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Elementos chaves para a resolução de problemas em grupo}{39}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Organização e Estrutura}{39}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Esquemas de organização e apresentação dos tópicos}{39}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Análise de Impacto}{40}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Preparando-se para uma entrevista ou reunião \faPeopleArrows }{41}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Entrevista}{41}{section.4.9}%
+\contentsline {paragraph}{Diálogo Guiado}{41}{section*.48}%
+\contentsline {paragraph}{Guia de entrevista}{42}{section*.49}%
+\contentsline {section}{\numberline {4.10}Para se ter em mente}{42}{section.4.10}%
+\contentsline {section}{\numberline {4.11}Enganos comuns}{43}{section.4.11}%
+\contentsline {section}{\numberline {4.12}Comentários finais}{43}{section.4.12}%
+\contentsline {chapter}{\numberline {5}Critérios de avaliação}{44}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Tabela de avaliação do relatório técnico}{44}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Tabela de avaliação do seminário de defesa}{49}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Avaliação Final}{51}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Sugestões para composição de uma apresentação com slides}{51}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Comentários finais}{54}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Conclusões e sugestões de trabalho futuro}{56}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conclusões}{56}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Propostas de Trabalho futuro.}{56}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Dicas sobre redação de Conclusão}{56}{section.6.3}%
+\contentsline {paragraph}{O que escrever na seção Conclusões?}{56}{section*.65}%
+\contentsline {paragraph}{Sugestões para autoavaliação das conclusões:}{57}{section*.66}%
+\contentsline {chapter}{\numberline {A}Lista dos principais símbolos e abreviações}{58}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Abreviações}{58}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Principais símbolos utilizados}{59}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Nomenclatura}{60}{section.A.3}%
+\contentsline {chapter}{Referências}{61}{section.A.3}%

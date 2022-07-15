@@ -1,0 +1,150 @@
+%%------------------------------------------------------------------- %%
+%	fig:DBlocosFiltroAmostragemDecimador
+% Diagrama em blocos de uma cadeia de amostragem de um sinal 
+% com um filtro anti-aliasing  analógico e um filtro 
+% anti-aliasing digital seguido por uma decimação de dados
+%
+%  --- Anisio R. Braga, COLTEC-UFMG
+%  --- 2021/01/25
+%---------------------------------------------------------------------
+
+\tikzset{
+	alias path picture bounding box/.code=%
+	\pgfnodealias{#1}{path picture bounding box},
+	CNTRL/.style =
+	{
+		> = latex, % Triangle,
+		block/.style = {rectangle, draw, thick,
+			minimum height=12mm, minimum width=12mm,
+			outer sep = 0mm},
+		dot/.style = {fill,
+			circle, inner sep=0mm, outer sep=0mm, minimum size=1mm,
+			node contents={}},
+		gain/.style = {thick, regular polygon, regular polygon sides=3, shape border rotate=-90, draw,
+			inner sep=3pt, anchor=west, outer sep = 0mm},
+		sum/.style = {circle, draw, thick, minimum size=6mm,
+			path picture={%
+				\tikzset{alias path picture bounding box=@}
+				\draw[very thick, shorten <=1mm, shorten >=1mm, -]
+				(@.north) edge (@.south)
+				(@.west)   --  (@.east);
+			},% end of node contents
+			node contents={}},
+	}% end of CNTRL style
+}% end of tikzset
+%-----------------------------
+
+\begin{circuitikz}[CNTRL, node distance = 10mm and 10mm]
+	\ctikzset{bipoles/oscope/width=1.2, bipoles/oscope/height=0.85} 
+	\tikzstyle{bkgbox}=[draw, rectangle, inner sep=25pt, densely dotted, rounded corners=1mm, 
+	teal, color=teal!50!gray,thick, fill=teal!5]
+	% --- rand function seed
+	\pgfmathsetseed{2.7}
+	
+	% --- Posicionando os blocos 
+	% --- Bloco de entrada
+	\node [block,fill=white] (Sensor) at (0,0){};
+	\node at (Sensor.east) [above right] {\color{azul}$y_s$}; 
+	\node[font=\small,below of=Sensor,label={[yshift=-0.5cm,align=center,font=\footnotesize]above: Sensor}]{};
+	% sinal analógico do sensor
+	\begin{scope}[shift={($(Sensor)+(-0.5,-0.375)$)},scale=0.65]
+		\draw [gray, ->] (0,0) \coord(f3)  -- ++(1.6,0) node[below=-2pt,font=\tiny](){$t$};
+		\draw [gray, ->] (f3)  -- ++(0,1.25);
+		\draw[azul,thick, samples=50,domain=0:1.4] plot(\x,{0.8+0.65*exp(-1.5*\x)*sin(6*(\x+0.55) r)});  
+	\end{scope}
+	%--- Somador ruído
+	\node (s1) [sum, right=of Sensor, node distance = 8mm ] {};
+	\node at (s1.west) [above left] {$+$} ;
+	\node at (s1.north) [above left, font=\footnotesize] {$+$};
+	
+	%--- Ruido
+	\node (Ruido) [block,fill=white, above of =s1,node distance=1.5cm] {}; 
+	\node[font=\scriptsize,left of = Ruido, align=center,node distance=1.1cm]{Ruído};
+	\node at (Ruido.south) [below right, font=\footnotesize] {$\xi$};
+	% sinal
+	\begin{scope}[shift={($(Ruido)+(-0.6,-0.4)$)},scale=0.75]
+		\begin{axis}[x=0.1cm,y=1cm,axis line style={draw=none},tick style={draw=none},xtick=\empty,ytick=\empty,
+			samples=50,domain=0:13]
+			\addplot[gray,thin, opacity=1] plot (\x, {0.5*rand});
+		\end{axis}
+	\end{scope}  
+	%--- Filtro anti-aliasing analógico
+	\node (FPB) [fill=white,block,right of=s1,node distance=2cm]  {$\dfrac{1}{\tau \, s+1}$}; 
+	\node[below of=FPB,label={[yshift=-0.75cm,align=center,font=\footnotesize]above: Filtro Analógico\\ Anti-aliasing}]{};
+	
+	%--- ADC amostrador
+	\node (ADC) [fill=white,block,right of=FPB,node distance=2.25cm] {}; 
+	\draw ($(ADC)+(-0.5,0)$) to[spst, a=\small $h$]  ++(1,0); 
+	\node at (ADC) [label={[yshift=0.5cm,align=center,font=\footnotesize]above: $\color{laranja}h=\tau$}]{};
+	\node[font=\scriptsize,below of=ADC,label={[yshift=-0.75cm,align=center,font=\scriptsize]above: ADC \\ Amostrador}]{};
+	%--- Filtro anti-aliasing digital
+	\node (FPBd) [fill=white,block,right of=ADC,node distance=2.5cm]  {$\dfrac{(1-\beta) z^{-1}}{1-\beta z^{-1}}$};\  
+	\node[below of=FPBd,label={[yshift=-0.75cm,align=center,font=\footnotesize]above: Filtro Digital \\ Anti-aliasing}]{}; 
+	\node at (FPBd) [label={[yshift=0.5cm,align=left,font=\footnotesize]above: $\tau_f=m\,\color{laranja}h$\\ $\beta \approx \frac{2\,m-1}{2\,m+1}$}]{};
+	%--- Decimador 
+	\node (DEC) [fill=white,block,right of=FPBd,node distance=2.5cm] {}; % {\Ztransf}; 
+	\draw ($(DEC)+(-0.5,0)$) to[spst, a=\small $h_1$ ]  ++(1,0); 
+	\node at (DEC) [label={[yshift=0.5cm,align=center,font=\footnotesize]above: $\color{red!50!gray}h_1 \color{black}=m\,\color{laranja}h$}]{};
+	\node[font=\scriptsize,below of=DEC,label={[yshift=-0.45cm,align=center,font=\footnotesize]above: Decimador}]{};
+	%--- Controlador 
+	\node (CTR) [fill=white,block,right of=DEC,node distance=2.2cm]  {$C(z^{-1})$}; 
+	\node[below of=CTR,label={[yshift=-0.75cm,align=center,font=\footnotesize]above: Controlador\\ Digital}]{};
+	%--- conexões
+	\draw[->] (Sensor) -- (s1);   
+	\draw[->] (Ruido) -- (s1.north); 
+	\draw[->] (s1.east) -- (FPB);  
+	\draw[->] (FPB) -- (ADC);  
+	\draw[->] (ADC) -- (FPBd);  
+	\draw[->] (FPBd) -- (DEC);  
+	\draw[->] (DEC) -- (CTR);  
+	%-----------------------------------
+	%-----------------------------------------
+	% desenhando esboço de gráficos dos sinais 
+	%---- Saída analógica y
+	\begin{scope}[shift={(-0.5,2.5)}]
+		\draw [gray, ->] (0,0) \coord(f3)  -- ++(1.6,0) node[below=-2pt,font=\scriptsize](){$t$};
+		\draw [gray, ->] (f3)  -- ++(0,1.25);
+		\draw[azul,thick, samples=50,domain=0:1.4] plot(\x,{0.8+0.65*exp(-1.5*\x)*sin(6*(\x+0.55) r)});
+		\draw[gray,-Stealth] [out=-90, in=90] (0.5,-0.15) to ($(Sensor.east)+(0.45,0.25)$); 
+	\end{scope} 
+	%---- Saída analógica y + ruido
+	\begin{scope}[shift={(2,2.5)}]
+		\draw [gray, ->] (0,0) \coord(f3)  -- ++(1.6,0) node[below=-2pt,font=\scriptsize](){$t$};
+		\draw [gray, ->] (f3)  -- ++(0,1.25);
+		\draw[azul, samples=70,domain=0:1.4] plot(\x,{0.2*rand+0.8+0.65*exp(-1.5*\x)*sin(6*(\x+0.55) r)});  
+		\draw[gray,-Stealth] [out=-90, in=90]  (0.75,-0.15) to ($(s1.east)+(0.45,0.15)$) node[ label={below :\color{azul}{\small $y_s+\xi$}}]{};
+	\end{scope} 
+	
+	%---- Saída analógica filtrada
+	\begin{scope}[shift={(4.25,2.5)}]
+		\draw [gray, ->] (0,0) \coord(f3)  -- ++(1.6,0) node[below=-2pt,font=\scriptsize](){$t$};
+		\draw [gray, ->] (f3)  -- ++(0,1.25);
+		\draw[laranja,semithick, smooth, samples=70,domain=0:1.4] plot(\x,{0.05*rand+0.8+0.65*exp(-1.5*\x)*sin(6*(\x+0.55) r)}); 
+		\draw[gray,-Stealth] [out=-90, in=90] (0.5,-0.15) to ($(FPB.east)+(0.45,0.15)$)node[ label={below :\color{laranja}{\small $y(t)$}}]{}; 
+	\end{scope} 
+	
+	%--- Saída ADC amostrador
+	\begin{scope}[shift={(6.75,2.5)}]
+		\draw [gray, ->] (0,0) \coord(f3)  -- ++(1.65,0) node[below=-2pt,font=\scriptsize](){$k\,h$};
+		\draw [gray, ->] (f3)  -- ++(0,1.2);
+		\draw[ycomb, mark=*, mark size=1.25pt,samples=14,domain=0:1.4] plot(\x,{0.05*rand+0.8+0.65*exp(-1.5*\x)*sin(6*(\x+0.55) r)});	
+		\draw[gray,-Stealth]  (0.75,-0.15) to[out=-90, in=90] ($(ADC.east)+(0.45,0.15)$) node[ label={below :\color{black}{\small $\breve{y}(k)$}}]{};
+	\end{scope}
+	
+	%--- Saída FPBd decimador
+	\begin{scope}[shift={(9.25,2.5)}]
+		\draw [gray, ->] (0,0) \coord(f3)  -- ++(1.65,0) node[below=-2pt,font=\scriptsize](){$k\,h$};
+		\draw [gray, ->] (f3)  -- ++(0,1.2);
+		\draw[red!50!gray,smooth, ycomb, mark=*, mark size=1.25pt,samples=14,domain=0:1.4] plot(\x,{0.8+0.6*exp(-1.5*\x)*sin(6*(\x+0.6) r)});  
+		\draw[gray,-Stealth] (0.75,-0.15) to[out=-80, in=100] ($(FPBd.east)+(0.45,0.15)$) node[ label={below :\color{red!50!gray}{\small $\hat{y}_f(k)$}}]{};
+	\end{scope}
+	%--- Saída Decimador
+	\begin{scope}[shift={(11.75,2.5)}]
+		\draw [gray, ->] (0,0) \coord(f3)  -- ++(1.65,0) node[below=-2pt,font=\scriptsize](){$k\,h_1$};
+		\draw [gray, ->] (f3)  -- ++(0,1.2);
+		\draw[ycomb, mark=*, mark size=1.25pt,samples=7,domain=0:1.4] plot(\x,{0.8+0.6*exp(-1.5*\x)*sin(6*(\x+0.6) r)});  
+		\draw[gray,-Stealth]  (0.75,-0.15) to[out=-90, in=90] ($(DEC.east)+(0.45,0.15)$) node[ label={below :\color{black}{\small $\hat{\hat{y}}_f(k)$}}]{};
+	\end{scope}
+	
+	%-------------------------------------------------
+\end{circuitikz}

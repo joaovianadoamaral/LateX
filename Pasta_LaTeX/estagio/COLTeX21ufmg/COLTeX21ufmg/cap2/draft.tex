@@ -1,0 +1,113 @@
+\subsection{Estilo de fontes para  destacar texto}
+
+O destaque de um texto é consistentemente obtido usando   \emph{ênfase} (\verb|\emph{ênfase}|), que automaticamente seleciona o estilo itálico ou romano (não-itálico) de acordo com o contexto. Quando deseja-se destacar  no texto usando sempre um mesmo estilo usa-se  o   \textbf{negrito} (\verb|\textbf{negrito}|),  \textit{itálico} (\verb|\textit{itálico}|) ou \underline{sublinhado} (\verb|\underline{sublinhado}|). Código fonte ou nomes de comandos e macros são normalmente formatados com o estilo \texttt{teletipo} (\verb|\texttt{teletipo}|).
+
+No ambiente de formato matemático o \textbf{negrito}, $\mathbf{R}$, é obtido com a macro (\verb|\mathbf{R}|), ou \emph{blackboard bold}, $\mathbb{R}$ (\verb|\mathbb{R}|) usados normalmente para descrever conjuntos de números reais $\mathbb{R}$, inteiros $\mathbb{Z}$, complexos $\mathbb{C}$, etc. 
+
+Quando se está em modo matemático e é preciso escrever texto com fonte romana usamos a macro \verb|\text|.  Por exemplo, ao descrever uma função linear por partes denominada \texttt{rampa} usamos o ambiente \verb|case|:
+
+\begin{multicols}{2}
+\begin{equation*}
+	r(x)= \begin{cases}
+		2\,x & \text{se }  x \ge 0 \\
+		0 & \text{se }  x < 0
+	\end{cases}
+\end{equation*}
+	\vfill\null 
+	\columnbreak
+	\begin{lstlisting}[language={[Latex]Tex},frame=single]
+\begin{equation*}
+	r(x)= \begin{cases}
+		2 \, x & \text{se }  x \ge 0 \\
+		0       & \text{se }  x < 0
+	\end{cases}
+\end{equation*}
+	\end{lstlisting}
+\end{multicols}
+
+\section{Espaços e mudança de linha}
+
+O \LaTeX\ ignora espaços extras e quebra de linha. Por exemplo, 
+\begin{lstlisting}[language={[Latex]Tex},frame=single]
+Uma sentença    longa       cheia         de espaços e com quebra 
+de linha é formatada     sem     os espaços    extras.
+\end{lstlisting}
+
+\fbox{Uma sentença    longa       cheia         de espaços e com quebra 
+	de linha é formatada     sem     os espaços    extras.}
+
+
+Salta-se uma linha vazia completa para quebrar um parágrafo em  dois. Coloca-se \verb|\\| no final de uma linha para criar uma nova linha, mas sem iniciar um novo parágrafo.
+
+Usa-se  \verb|\noindent| para impedir a indentação de um novo parágrafo.
+
+\section{Comentários}
+
+Usa-se o caracter ``\%''   para comentar uma linha. Nada é formatado à direita  do caracter ``\%'' numa linha.
+
+ \verb|$f(t)=\sin(\omega\, t)$. \% esta é uma função senoidal| 
+ 
+ resulta em $f(t)=\sin(\omega\, t)$. % esta é a função senoidal
+
+\section{Caracteres delimitadores}
+
+\begin{tabular}{lllll}
+	\toprule
+	\emph{Descrição} & \emph{Comando}  & \emph{Resultado} &\emph{Objetos grandes} & \emph{Resultado}\\
+	\midrule
+	Parêntesis &\verb|(x)| & (x) &\verb|$\qty(\dfrac{1}{\tau\, s})$| & $\qty(\dfrac{1}{\tau\, s})$\\
+	Colchetes &\verb|[x]| & [x]&\verb|$\qty[\dfrac{1}{\tau\, s}]$| & $\qty[\dfrac{1}{\tau\, s}]$\\
+	Chaves & \verb|\{x\}| & \{x\}&\verb|$\qty{\dfrac{1}{\tau\, s}}$$| & $\qty{\dfrac{1}{\tau\, s}}$\\
+	\bottomrule
+\end{tabular}
+
+Para tornar os delimitadores grandes o suficiente para abraçar o conteúdo, use-os junto com \verb|\right| e \verb|\left|. Usando o pacote \texttt{physics},  a macro \verb|\qty()| formata corretamente objetos de qualquer tamanho, simplificando a edição.
+
+O par de chaves $\qty{}$ são caracteres invisíveis usados para agrupar texto e objetos formados por mais de um caracter. Observe as diferenças nas seguintes expressões
+ \verb|x^2|, \verb|x^{2}|, \verb|x^2t|, \verb|x^{2t}| quando formatadas: $x^2$, $x^{2}$, $x^2t$, $x^{2t}$.
+
+
+\section{Listas}
+
+Listas são editadas de duas maneiras: ordenada (\verb|enumerate|) ou não ordenada (\verb|itemize|). Em ambos os casos é importante manter o paralelismo de linguagem, i.e. se o item começar com um verbo, todos os demais devem ser verbos também. Se escolher um substantivo, mantenha todos os itens iniciando com substantivos. O nosso cérebro não aprecia quebra de paralelismo de linguagem em listas e também em enumerações no meio do texto também!
+
+\begin{multicols}{2}
+	As três etapas essenciais em um sistema de automação são:
+		\begin{enumerate}
+			\item Energizar
+			\item Partir
+			\item Parar
+		\end{enumerate}
+ \vfill\null 
+\columnbreak
+	\begin{lstlisting}[language={[Latex]Tex},frame=single]
+	As três etapas essenciais em um 
+	sistema de automação são:
+\begin{enumerate}
+	\item Energizar
+	\item Partir
+	\item Parar
+\end{enumerate}
+	\end{lstlisting}
+\end{multicols}
+
+\begin{multicols}{2}
+Avaliamos para:
+		\begin{itemize}
+	\item Conhecer
+	\item Valorizar
+	\item Responsabilizar
+\end{itemize}
+
+  \columnbreak
+	\begin{lstlisting}[language={[Latex]Tex},frame=single]
+		Avaliamos para:
+		\begin{itemize}
+			\item Conhecer
+			\item Valorizar
+			\item Responsabilizar
+		\end{itemize}
+	\end{lstlisting}
+\end{multicols}
+
+

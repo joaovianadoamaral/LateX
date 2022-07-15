@@ -1,0 +1,367 @@
+\chapter{Metodologia para resolução de problemas de consultoria.}
+
+Problemas de consultoria são, geralmente, problemas complexos que requerem uma abordagem com equipes multidisciplinares. A seguir são apresentados, sucintamente, alguns tópicos e metodologias (estruturas e procedimentos) que favorecem um  fluxo de trabalho focado em compreender, delinear e delimitar um determinado problema, para se construir propostas de soluções factíveis e acionáveis.
+
+\subsection{Sete Passos para Resolver Problemas}
+
+\begin{enumerate}
+	\item   Definir o problema.
+	\item  Dividir em questões.
+	\keyparbox[H]{lw=1}{% --- inicio
+		\begin{tikzpicture}[scale=0.75,transform shape,grow=right, sibling distance=1cm, level distance=3cm]
+			\node[rectangle,draw] {Problema}[edge from parent fork right,grow=right] 
+			child {node[rectangle,draw] {Questão 2}}
+			child {node[rectangle,draw] {Questão 1}
+				child {node[rectangle,draw, text width=2.25cm] {Ameaças}}
+				child {node[rectangle,draw, text width=2.25cm] {Oportunidades}}
+			};
+		\end{tikzpicture}
+	}%--- fim
+	\item  Eliminar todas as que não são questões chaves.
+	\item Obter dados e conduzir uma análise crítica
+	\item Agrupar as constatações (fatos) e construir argumentos.
+	\keyparbox[H]{lw=1}{% --- inicio
+		\begin{tikzpicture}[scale=0.75,transform shape,level distance=1.5cm, level 1/.style={sibling distance=3cm}, level 2/.style={sibling distance=1cm} ]
+			\node[rectangle,draw] {Tópico}[edge from parent fork down,grow=down] 
+			child {node[rectangle,draw,sibling distance=1cm,align=center] {Não tem \\}
+				child {node[rectangle,draw] {\phantom{mm}}}
+				child {node[rectangle,draw] {\phantom{mm}}}
+			}
+			child {node[rectangle,draw,align=center] {Faltando\\ ainda}
+				child {node[rectangle,draw] {\phantom{mm}}}
+				child {node[rectangle,draw] {\phantom{mm}}}
+			}
+			child {node[rectangle,draw,sibling distance=1cm,align=center] {Características\\ únicas}
+				child {node[rectangle,draw] {\phantom{mm}}}
+				child {node[rectangle,draw] {\phantom{mm}}}
+			}
+			;
+		\end{tikzpicture}
+	}%--- fim
+	\item Contar a história.
+	\item Revisar e reavaliar periodicamente
+\end{enumerate}
+
+A Figura~\ref{fig:ResolucaoLogicaProb} ilustra os três aspectos de uma resolução lógica de problemas visando impacto.
+\keyfigbox[H]{lw=1, c={Resolução lógica de problemas}, l=fig:ResolucaoLogicaProb}{% --- inicio
+	\begin{tikzpicture}[grow=left, sibling distance=1cm, level distance=3.5cm,->,>=Straight Barb]
+		\node[rectangle,draw,align=left] {Resolução lógica\\ de problemas}[edge from parent fork right,grow=right] 
+		child {node[rectangle,draw,align=left, text width=2.25cm] {Induzido pelo\\ impacto}}
+		child {node[rectangle,draw,align=left, text width=2.25cm] {Focalizado\\\phantom{mmm} }}
+		child {node[rectangle,draw,align=left, text width=2.25cm] {Baseado \\ em fatos}};
+		\node at (5.65,0) [dart,dart tip angle=120,draw,red!50!gray]{\phantom{|}};
+		\node at (6.75,0)   [draw,starburst, fill=pink,rotate=90]{Impacto}; 
+	\end{tikzpicture}
+}%--- fim
+
+
+\section{Questões características de uma boa resolução de problemas}
+
+As questões devem ser:
+
+\begin{enumerate}
+	\item  Provocativas de pensamentos, não um fato.
+	\item  Específicas e não gerais.
+	\item  Debatíveis.
+	\item  Acionáveis (desencadeadoras de ações).
+	\item  Focalizadas.
+\end{enumerate}
+
+O processo de resolução de um problema deve ser \textbf{MECE} - Mutuamente
+Exclusivo, Coletivamente Exaustivo
+
+\begin{enumerate}
+	\item  Para "quebrar" o problema
+	\begin{enumerate}
+		\item   trabalho pode ser dividido e gerenciado em pedaços.
+		\item    prioridades podem ser definidas.
+		\item    responsabilidades podem ser alocadas.
+	\end{enumerate}
+	
+	\item   Para garantir que a integridade da solução do problema seja mantida.
+	
+\end{enumerate}
+
+\section{Métodos de divisão do problema}
+
+\begin{itemize}
+	\item  Árvore de questões: quando há pouco conhecimento prévio
+	\item  Induzido por hipóteses: quando há experiência prévia [\texttt{Se} $A$, \texttt{então} $B$]
+\end{itemize}
+
+
+\section{Elementos chaves para a resolução de problemas em grupo}
+
+\begin{enumerate}
+	\item  Organize a liderança;
+	\item  Divida o trabalho (sub-grupos);
+	\item  Ouça, reflita, tome nota;
+	\item  Sintetize (secretário(a));
+	\item  Reveja e pense a respeito.
+\end{enumerate}
+
+\section{Organização e Estrutura}
+
+\begin{itemize}
+	\item  Agrupe as constatações fáceis e determine como elas se relacionam com as questões chaves;
+	\item  Aborde cada questão numa estrutura \emph{top} -- \emph{down} (geral $\to$ detalhe);
+	\item  Mantenha a mensagem focalizada;
+	\item  Seja \textbf{MECE}.
+\end{itemize}
+
+\section{Esquemas de organização e apresentação dos tópicos}
+
+Problemas são organizados de duas formas: 
+\begin{enumerate}
+	\item Agrupamento
+	\keyfigbox[H]{lw=1, c={Estrutura de agrupamento}, l=EstruturaAgrupamento}{% --- inicio
+		\begin{tikzpicture}[scale=1,transform shape,level distance=1.5cm, level 1/.style={sibling distance=3cm}, level 2/.style={sibling distance=1cm} ]
+			\node[rectangle,draw] {Tópico}[edge from parent fork down,grow=down] 
+			child {node[rectangle,draw,sibling distance=1cm,align=center] {Não tem \\}
+				child {node[rectangle,draw] {\phantom{mm}}}
+				child {node[rectangle,draw] {\phantom{mm}}}
+			}
+			child {node[rectangle,draw,align=center] {Faltando\\ ainda}
+				child {node[rectangle,draw] {\phantom{mm}}}
+				child {node[rectangle,draw] {\phantom{mm}}}
+			}
+			child {node[rectangle,draw,sibling distance=1cm,align=center] {Características\\ únicas}
+				child {node[rectangle,draw] {\phantom{mm}}}
+				child {node[rectangle,draw] {\phantom{mm}}}
+			}
+			;
+		\end{tikzpicture}
+	}%--- fim
+	\item Argumentação lógica
+	
+	\keyfigbox[H]{lw=1, c={Estrutura de argumentação lógica}, l=EstruturaArgumentacao}{% --- inicio
+		\begin{circuitikz}[ >=triangle 45]
+			\tikzset{%
+				block/.style    = {draw, thick, rectangle, minimum height = 2em,
+					minimum width = 3.5em, node distance = 2.75cm},
+				sum/.style      = {draw, circle, node distance = 2cm}, % Adder
+				input/.style    = {coordinate}, % Input
+				output/.style   = {coordinate} % Output
+			}
+			\draw
+			% Drawing the blocks
+			node [block ] (G1) {Declaração}
+			node [block, right of=G1] (G2) {Comentário}
+			node [block, right of=G2] (G3) {Conclusão}
+			;
+			% Conectando os  blocos.
+			\draw[->](G1) -- (G2);
+			\draw[->](G2) -- (G3);
+		\end{circuitikz}
+	}%--- Fim
+	
+\end{enumerate}
+
+A Figura~\ref{fig:ContandoHistoriaRP} ilustra duas formas de como apresentar a história do problema e as propostas de soluções. 
+
+\begin{keysubfigs}{1}{c={Contando a história da resolução do problema.},l=fig:ContandoHistoriaRP}
+	\keyfigbox{lw=1,c={Encadeando a situação atual, complicações e resolução.},	l=fig:SubfigA}{% --- FigBox A
+		\begin{tikzpicture}
+			\node at(0,0) [signal,signal pointer angle=90,draw,fill=verde,text=white, node distance=4cm,inner sep=7pt, font=\sffamily](P) {\qquad Situação\qquad \quad};
+			\node [right of= P, signal,signal from=west, signal to=east, signal pointer angle=90,draw,fill=laranja,text=white, node distance=3.45cm, inner sep=7pt,font=\sffamily](S) {\;\;Complicação};
+			\node [right of= S,signal,signal from=west, signal to=east,signal pointer angle=90,draw,fill=azul, node distance=3.75cm,text=white, inner sep=7pt,font=\sffamily](A) {\qquad\quad  Resolução\qquad \quad};
+		\end{tikzpicture}
+		\begin{tblr}{ 
+				hlines={gray!50},
+				vlines={gray!50},
+				row{1}= {bg=azure3, fg=white, font=\sffamily},
+				colspec={Q[m,1] Q[m,1] Q[m,1.5]},
+			}
+			\textbf{Situação\hfill \faArrowCircleRight} & \textbf{Complicação\hfill \faArrowCircleRight} & \textbf{Resolução\hfill \faArrowCircleRight}\\
+			{O estado atual dos negócios\\ $\bullet$ O que?}
+			& {O problema que está sendo resolvido\\ $\bullet$ Por que?}
+			& {A Solução\\ $\bullet$ Solução a curto prazo\\ $\bullet$ Solução a longo prazo }
+		\end{tblr}
+	}
+	\keyfigbox{lw=1,c={Conceito CCCA: Objeto alvo $\longmapsto$ Audiência},l=fig:CCCAalvoAudiencia}{% --- FigBox B
+		\begin{tikzpicture}
+			\node at(0,0) [signal,signal pointer angle=90,draw,fill=verde,text=white, node distance=2.75cm,inner sep=7pt, font=\sffamily, align=left](C1) {\textbf{CONSCIÊNCIA} \\ Descreva a situação};
+			\node [right of= C1, signal,signal from=west, signal to=east, signal pointer angle=90,draw,fill=laranja,text=white, node distance=3.85cm, inner sep=7pt,font=\sffamily, align=left](C2) {\textbf{CONVICÇÃO}\\ Proveja solução};
+			\node [right of= C2,signal,signal from=west, signal to=east,signal pointer angle=90,draw,fill=azul, node distance=3.35cm,text=white, inner sep=8pt,font=\sffamily, align=left](C3) {\textbf{CORAGEM}\\ Crie visões};
+			\node [right of= C3,signal,signal from=west, signal to=east,signal pointer angle=90,draw,fill=purple, node distance=3.5cm,text=white, inner sep=7pt,font=\sffamily, align=left](A) {\textbf{AÇÃO}\\ Mostre o caminho};
+		\end{tikzpicture}
+		
+		\begin{tblr}{ 
+				hlines={gray!50},
+				vlines={gray!50},
+				width=1.3\textwidth,
+				row{1}= {bg=azure3, fg=white, font=\sffamily},
+				colspec={Q[m,2] Q[m,2] Q[m,2] Q[m,2]},
+			}
+			\textbf{Consciência\hfill \faArrowCircleRight}& \textbf{Convicção\hfill  \faArrowCircleRight}& \textbf{Coragem\hfill   \faArrowCircleRight}& \textbf{Ação}\\
+			{Descreva a situação} & {Proveja solução}	& { Crie visões } & {Mostre o caminho}
+		\end{tblr}
+		
+	}
+\end{keysubfigs}
+
+
+
+
+
+
+
+
+\section{Análise de Impacto}
+
+A Figura~\ref{fig:AnaliseImpacto} ilustra uma representação gráfica de tópicos ou questões a serem resolvidos e uma análise comparativa de custo ou dificuldade de implementação versus impacto da solução.  As questões acima da diagonal tracejada apresentam maior impacto em relação ao custo ou dificuldade e, portanto, devem ser abordadas primeiramente. 
+
+\keyfigbox[H]{lw=1,c={Esquema gráfico para análise de impacto.},l=fig:AnaliseImpacto}{%
+	\begin{tikzpicture}
+		% coordinate system
+		\coordinate (o) at (0, 0);
+		\draw[-latex] (o) -- +(4, 0) node [below,pos = 0.5, align = center, font=\footnotesize] {Custo \$ ou \\ dificuldade};
+		\draw[-latex] (o) -- +(0, 4) node [left=1em,pos=0.75, align = center, rotate=90, font=\footnotesize] {Impacto};
+		% --- bissetriz
+		\draw[gray, densely dashed] (o) -- (4,4);
+		% --- tópicos
+		\node at (7,2) [ rectangle split,rectangle split part align=left, rectangle split parts=7,font=\footnotesize]{%
+			\textbf{Tópicos}
+			\nodepart{two}  \color{verde} \encircled{1} Fácil com alto impacto
+			\nodepart{three} \color{azul}\encircled{2} Fácil com baixo impacto
+			\nodepart{four}  \color{azcl}\encircled{3} Custoso com alto impacto
+			\nodepart{five}  \color{laranja}\encircled{4} Custo e impacto moderados
+			\nodepart{six}   \color{pink!50!gray}\encircled{5} Fácil com baixo impacto
+			\nodepart{seven} \color{red}\encircled{6} Difícil com baixo impacto
+		};
+		% --- posicionado os tópicos 
+		\node at (0.5,3) [draw, circle,fill=verde!50, inner sep=2pt]{1};
+		\node at (0.5,1) [draw, circle,fill=azul!50, inner sep=2pt]{2};
+		\node at (3,3.5) [draw, circle,fill=azcl!50, inner sep=2pt]{3};
+		\node at (1.75,1.75) [draw, circle,fill=laranja!50, inner sep=2pt]{4};
+		\node at (1,0.5) [draw, circle,fill=pink!50, inner sep=2pt]{5};
+		\node at (3.25,0.5) [draw, circle,fill=red!50, inner sep=2pt]{6};
+	\end{tikzpicture}
+}% --- Fim FigBox
+
+
+\section{Preparando-se para uma entrevista ou reunião}
+Estar sempre preparado para responder uma questão em 30 segundos sobre o projeto ou problema em que se está trabalhando é uma recomendação valiosa. A dica é sempre pensar como se estivesse elaborando um título, i.e. o resumo mais sintético daquilo que estamos trabalhando deve conter o assunto e uma proposta de resolução. Se este resumo extremamente sintético for atraente e sagaz seja um cliente ou um orientador demonstrará o devido interesse e o tempo para conhecer mais detalhes. 
+
+\begin{itemize}
+	\item  Instruções
+	\begin{itemize}
+		\item    Defina os tópicos para falar.
+		\item    Apoie com pelo menos 2 níveis de uma pirâmide .
+		\item    Salve os resultados (sumário).
+		\item    Esteja preparado para dizer alguma coisa em um minuto.
+		\item    Anote qualquer dificuldade para discutir.
+	\end{itemize}
+	\item  Sugestões
+	\begin{itemize}
+		\item    Defina uma meta realista para uma configuração.
+		\item    Defina um pensamento direcionador, que  é uma questão chave estabelecida na definição do problema.
+		\item    Considere audiência (Qual questão deve ser colocada?).
+		\item    Use agrupamentos;
+	\end{itemize}
+\end{itemize}
+
+\section{Entrevista}
+
+Entrevistas são oportunidades não apenas para se obter informações para resolver problemas, mas também oportunidade para se construir um relacionamento vantajoso de cooperação.
+Portanto, é importante planejar uma entrevista  visando resultados com uma sequência lógica de construção do entendimento global, e.g.:
+
+
+\emph{Questões $\to$ Hipóteses $\to$ Disponibilidade de Dados (novos dados de
+	entrevistas) $\to$  Análise $\to$ Redação de relatórios.}
+
+\paragraph{Diálogo Guiado}
+
+A reunião com um cliente ou orientador deve ser pensada como uma oportunidade para se obter informação para resolver determinado problema, além de se construir um relacionamento amigável que permita uma antecipação vantajosa de informações durante uma busca de soluções.
+
+Preparando-se para uma entrevista, organize:
+\begin{itemize}
+	\item Sequência de tópicos
+	\begin{itemize}
+		\item Importância
+		\item Sensitividade
+	\end{itemize}
+	\item Antecipação
+	de entraves e soluções ponderáveis.
+	\item Documentação
+	existente sempre ao alcance.
+	\item Necessidades
+	já identificadas e justificadas.
+\end{itemize}
+
+
+\paragraph{Guia de entrevista} Pensar sobre estratégias que auxiliem a solução do problema e abordagens que considerem os diversos aspectos que contextualizam o problema, e.g.: 
+
+\begin{enumerate}
+	\item Visão de mercado
+	\begin{enumerate}
+		\item Estrutura da indústria
+		\item Competitividade
+		\item Desempenho financeiro
+	\end{enumerate}
+	\item Análise de ambientes
+	\begin{enumerate}
+		\item Ambiente externo
+		\subitem Oportunidades
+		\subitem Ameaças
+		\item Ambiente interno
+		\subitem Forças
+		\subitem Fraquezas
+	\end{enumerate}
+	\item Oportunidades
+	\begin{enumerate}
+		\item Fator chave de compra
+		\item Alavancas de lucratividade
+		\item Custo
+	\end{enumerate}
+	\item Competidores
+	\begin{enumerate}
+		\item Prioridades
+		\item Relacionamento (fraco/forte)
+		\item Desenvolvimento antecipado
+		\item Não-tradicional
+	\end{enumerate}
+\end{enumerate}
+
+
+%%%%%
+\section{Para se ter em mente}
+
+\begin{itemize}
+	\item  Ouça o problema -- esteja seguro de que a questão certa está sendo
+	respondida.
+	\item Coloque uma estrutura na sua frente -- pense em uma estrutura
+	possuindo 4-5 questões chaves que você precisa responder antes de
+	sintetizar a resposta sobre a questão total.
+	\item  Proceda em um estilo organizado -- conclua uma questão da estrutura
+	e chegue em um ponto de vista a este respeito antes de partir para o
+	próximo.
+	\item  Volte um passo atrás periodicamente -- sumarize o que tem sido
+	aprendido e o que as implicações parecem ser.
+	\item  Comunique a cadeia lógica do seu pensamento -- as alternativas
+	consideradas e as rejeitadas devem ser relatadas.
+	\item  Peça informações com ``bom senso'' -- pense porque a informação é
+	necessária e os caminhos para obtê-las, de preferência, sem custo ou a
+	custo baixo.
+	\item  Mantenha a cabeça aberta.
+	\item  Demonstre claramente o pensamento lógico do
+	processo ao invés de simplesmente apresentar uma solução.
+	\item  Use o senso comum (mas não muito!)
+	\item  Relaxe e aprecie o processo (:-)
+\end{itemize}
+
+\section{Enganos comuns}
+
+\begin{itemize}
+	\item Não entender bem onde termina uma questão respondendo a questão
+	errada.
+	\item  Proceder de maneira arriscada, i.e., não identificar as questões
+	principais que devem ser examinadas ou ficar ``pulando'' de uma
+	questão para outra.
+	\item Levantar um grande número de questões sem explicar porque esta
+	informação é necessária.
+	\item  Forçar-ajustar poucas ferramentas familiares para toda questão em
+	análise.
+	\item  Não ser capaz de sintetizar um ponto de vista baseado na informação
+	fornecida.
+\end{itemize}

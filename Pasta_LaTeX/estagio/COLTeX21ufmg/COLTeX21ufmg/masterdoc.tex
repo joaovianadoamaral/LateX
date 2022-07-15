@@ -1,0 +1,340 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[a4paper,11pt]{report}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Editar o arquivo COLTeXufmg.sty comentando a linha 560 caso queira omitir a logomarca ou
+% substituí-la.
+%
+% Preparado por: Anísio R. Braga, COLTEC/UFMG
+% Rev  0:  2010-03 - versão inicial para formatar tese/UFMG
+% Rev  1:  2018-05 - incluída folha de rosto de estágio COLTEC
+% Rev  3:  2021-07 - Inclusão de dicas do Latex usando o pacote keyfloat 
+%								- Recomendações para elaborar proposta de PFC ou projeto de IC.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --- Pacotes usados ou sugeridos
+\usepackage{COLTeXufmg }% Com folha de rosto com informações de estágio
+\usepackage{multicol}
+
+\usepackage{amssymb} %maths
+\usepackage{amsmath} %maths
+\usepackage{amsfonts} % 100
+\usepackage[fleqn,tbtags]{mathtools}
+\usepackage{tabu} % para usar texto em verbatim {verb|texto literal|} dentro de uma table
+\usepackage{steinmetz}% provides \phase for nice complex polar form
+
+\usepackage[utf8]{inputenc} %useful to type directly diacritic characters
+\usepackage[T1]{fontenc}
+\usepackage[portuges,brazilian]{babel}
+\usepackage[portuges]{varioref}
+\usepackage{hyphenat}
+
+\usepackage{graphicx, balance}
+\usepackage{etexcmds,epsfig}
+\DeclareGraphicsExtensions{.pdf,.svg,.eps,.png,.jpg,.jpeg}
+
+\usepackage[tableposition=top]{caption}
+\usepackage{keyfloat}  % Support for small, `sub' figures and tables
+\usepackage{enumitem} %[noitemsep] nas listas
+
+\usepackage{tikz} % Drawing package
+\usepackage{tkz-euclide} % node definition in tikz
+\usepackage[siunitx,american, RPvoltages]{circuitikz}
+\usepackage{tikzscale} % para escalonar figuras .tikz inseridas com 
+											% 	\includegraphics[width=0.5\textwidth]{figuras/ExemploCircuitikz.tikz}
+\usepackage{pgfgantt}  % editar cronograma com diagrama de Gantt
+
+\usepackage{pgfplots}
+\usetikzlibrary{arrows,shapes,graphs,calc,positioning}
+\usetikzlibrary{shapes.symbols} 
+\usetikzlibrary{decorations.markings, decorations.pathmorphing}
+\usepgflibrary{shapes.geometric, plotmarks, arrows.meta}
+\usetikzlibrary{trees} 
+
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{fit}                      % fitting shapes to coordinates
+\usetikzlibrary{backgrounds}  % drawing on the background after the foreground
+\usepgfplotslibrary{polar, patchplots}
+\usepackage{grffile}
+\pgfplotsset{compat=newest}
+
+\usepackage{physics} % Macros para editar  derivada, matrizes, colchetes grandes, etc.
+\usepackage{booktabs} % for \toprule, etc.
+\usepackage{ifthen} % for if-then-else programming  in latex
+\usepackage{cancel}
+
+% --- Extending commands etc
+\usepackage{xstring}
+\usepackage{xcolor} % for using extra color arguments 
+\usepackage{xargs} % for using extra optional arguments 
+\usepackage[skins,xparse]{tcolorbox}
+\usepackage{colortbl}
+\usepackage{adjustbox}
+\usepackage{ulem} % para comentar e destacar textos com \uwave{}, \sout{} \xout{} \hl{}
+
+% --- chars
+\usepackage[electronic]{ifsym}
+\usepackage{fontawesome5} % icones
+
+
+% --- etc
+\usepackage{tabto}
+\usepackage{tabularx,indentfirst}
+\usepackage{tabularray} % sintaxe mais simples e configurável para formatar tabelas
+\usepackage[numbered]{matlab-prettifier}
+\usepackage{mcode}
+\lstset{backgroundcolor=\color{olive!3}} % Formata background de lisatgens de programas
+
+\usepackage{makeidx}
+% ---  fonts ---------------
+\usepackage{microtype}
+\usepackage{inconsolata}
+
+%----------------------------------------------------------------------------------------
+%	HYPERLINKS
+%----------------------------------------------------------------------------------------
+\usepackage{url} 
+\usepackage{hyperref} % Required for hyperlinks
+\hypersetup{hidelinks,colorlinks,breaklinks=true,urlcolor=color2,citecolor=color1,linkcolor=color1,bookmarksopen=false,pdftitle={Title},pdfauthor={Author}}
+
+
+% --- Counters
+\setcounter{MaxMatrixCols}{10}
+%----------------------------------------------------------------------------------------
+% Definições de ambientes típicos
+%----------------------------------------------------------------------------------------
+\newtheorem{theorem}{Teorema}
+\newtheorem{algorithm}{Algoritmo}
+\newtheorem{axiom}{Axioma}
+\newtheorem{case}{Caso}
+\newtheorem{conclusion}{Conclusão}
+\newtheorem{condition}{Condição}
+\newtheorem{conjecture}{Conjectura}
+\newtheorem{corollary}{Corolário}
+\newtheorem{criterion}{Critério}
+\newtheorem{definition}{Definição}
+\newtheorem{example}{Exemplo}
+\newtheorem{exercise}{Exercício}
+\newtheorem{lemma}{Lema}
+\newtheorem{notation}{Notação}
+\newtheorem{observation}{Observação}
+\newtheorem{problem}{Problema}
+\newtheorem{proposition}{Proposição}
+\newtheorem{solution}{Solução}
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%	ALGUMAS MACROS PARA FACILITAR A EDITORAÇÃO
+%----------------------------------------------------------------------------------------
+%--- Para destacar (highlight ocmentários no texto)
+% uso: \arb[Reescreva: ]{Este texto destacado é para ser revisado.}
+\newcommandx{\arb}[3][1=NB:, 2=red!50!gray]{ \color{#2} #1 #3 \color{black}}
+
+% Definitions to help locate nodes. Comment out the second definition when done!
+\def\normalcoord(#1){coordinate(#1)} 
+\def\showcoord(#1){node[circle, red, draw, inner sep=1pt, 
+		pin={[red, overlay, inner sep=0.5pt, font=\tiny, pin distance=0.1cm, 
+		pin edge={red, overlay}]45:#1}](#1){}} 
+\let\coord=\normalcoord 
+%\let\coord=\showcoord  % uncomment this line to show node locations with a pin
+
+% --- PROBE para nomear  nodes nas figuras Tikz
+% Exemplo:  \probe[verm]{A}[150:0.75]{Ap}[$+$][2pt][10pt]
+\newcommandx{\probe}[7][1=red, 3=45:0.5, 5=$+$, 6=0.25pt, 7=5pt] %[color]{x,y}[angle:radius]{name}[label][line width][-Kite length] 
+{\draw[#1, line width = #6,-{Kite[length=#7]}] ($(#2)+(#3)$) node[circle, very thin, inner sep=0pt, minimum size=5pt, draw=#1, fill=#1!10,font=\tiny](#4){#5} to (#2);
+}
+
+% ---  Olho para indicar a direção do olhar de impedâncias em circuitos!
+% Exemplo:  \eyex[gray]{0,0}[0.3][-10]
+\newcommandx{\eyex}[4][1=black, 3=0.5, 4=-10]% [color]{x,y}[size][rotation]
+{   \draw[#1,rotate around={#4:(#2)}] (#2) -- ++(-.5*55:#3) (#2) -- ++(.5*55:#3);
+	\draw[#1] (#2) ++(#4+55:.75*#3) arc (#4+55:#4-55:.75*#3);
+	% IRIS
+	\draw[#1,fill=#1!30!white] (#2) ++(#4+55/3:.75*#3) arc (#4+180-55:#4+180+55:.28*#3);
+	\draw[#1,fill=black] (#2) ++(#4+55/3:.75*#3) arc (#4+55/3:#4-55/3:.75*#3);
+}
+\makeatletter% Encircled
+\newcommand*{\encircled}[1]{\relax\ifmmode\mathpalette\@encircled@math{#1}\else\@encircled{#1}\fi}
+\newcommand*{\@encircled@math}[2]{\@encircled{$\m@th#1#2$}}
+\newcommand*{\@encircled}[1]{%
+	\tikz[baseline,anchor=base]{\node[draw,circle,outer sep=0pt,inner sep=.2ex, thick] {#1};}}
+\makeatother
+%----------------------------------------------------------------------------------------
+% Comandos uteis
+%----------------------------------------------------------------------------------------
+% O Pacote matlabcode redefine o ambiente lstlisting para inserir 
+% código de programas Matlab, C, etc.
+% Utilize este ambiente para inserir codigo fonte ao invés de Verbatim
+% a seguir redefinimos comando para mudar o nome de Listing para Programa.
+\renewcommand{\lstlistingname}{Programa}
+
+% Equações são referenciadas entre parentesis. 
+% Então use \bref{eq:minhaEquacao} ao invés \ref{eq:minhaEq}
+\newcommand{\bref}[1]{\mbox{(\ref{#1})}}
+
+% Figura são referenciadas mantendo a referencia colada na palavra Figura "Figura~\ref{...}"
+\newcommand\figref{Figura~\ref}
+
+% Comando para desenhar um quadradinho preto indicando fim do exercicio ou exemplo.
+%\renewcommand{\qed}{\hfill\blacksquare}
+\newcommand*{\QEDA}{\hfill\ensuremath{{\scriptsize \blacksquare}}}
+
+% Wrapping box for table cells. #1=0<textwidth<1; #2=text
+\newcommand{\cellwrap}[2]{\begin{minipage}{#1} \strut#2\strut \end{minipage} }
+
+\newcommand\sparbox[3][c]{\parbox[#1]{#2}{\strut#3\strut}}
+
+%----------------------------------------------------------------------------------------
+%	CORES
+%----------------------------------------------------------------------------------------
+% Cores default do Matlab usando nomes em portugues
+\definecolor{lara}{rgb}{0.8500    0.3250    0.0980}
+\definecolor{laranja}{rgb}{0.8500    0.3250    0.0980}
+\definecolor{azul}{rgb}{0.0000    0.4470    0.7410}
+\definecolor{verm}{rgb}{1.0000    0.3100    0.3900}
+\definecolor{vermelho}{rgb}{1.0000    0.3100    0.3900}
+\definecolor{amar}{rgb}{0.9290    0.6940    0.1250}
+\definecolor{amarelo}{rgb}{0.9290    0.6940    0.1250}
+\definecolor{roxo}{rgb}{0.4940    0.1840    0.5560}
+\definecolor{verd}{rgb}{0.4660    0.6740    0.1880}
+\definecolor{verde}{rgb}{0.4660    0.6740    0.1880}
+\definecolor{azcl}{rgb}{0.3010    0.7450    0.9330}
+\definecolor{marr}{rgb}{0.6350    0.0780    0.1840}
+\definecolor{marrom}{rgb}{0.6350    0.0780    0.1840}
+\definecolor{ouro}{rgb}{0.9961    0.6667    0.2275}
+
+%--- Padronizando cores para corrente e voltagem
+\definecolor{vcolor}{rgb}{0.8500    0.3250    0.0980} % voltagem = laranja
+\definecolor{icolor}{rgb}{0.0000    0.4470    0.7410} % corrente = azul
+\definecolor{corUFMG}{rgb}{0.784, 0.063, 0.18} % cor do logo da ufmg
+
+\definecolor{color1}{RGB}{0,0,90}    % Color of the article title and sections
+\definecolor{color2}{RGB}{0,20,20} % Color of the boxes behind the abstract and headings
+%----------------------------------------------------------------------------------------
+%	Definindo opções para numerar em sequência exemplos, algoritmos, etc.
+%----------------------------------------------------------------------------------------
+\counterwithin{figure}{chapter}
+\counterwithin{example}{chapter}
+\counterwithin{definition}{chapter}
+\counterwithin{algorithm}{chapter}
+
+
+
+% Se quiser dedicar a alguém basta remover o comentário da próxima linha e redigir ...
+%\dedication{ Para meus pais José e Maria...}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  --- Dados da sua unidade e orientador                                                         %%
+\college{COLTEC} % Minha Unidade
+\advisor{\textbf{Orientador}: Nome do orientador, Unidade,  \\ 
+				\textbf{Supervisor}: Nome do supervisor, Empresa}
+
+\fulfilment{   \Large \textsf{Relatório de Estágio Técnico Curricular}  } 
+
+%\fulfilment{ \textsf{Monografia submetida à banca examinadora designada pelo Colegiado Didático do Curso de Graduação em Engenharia de Controle e Automação da Universidade Federal de Minas Gerais, como parte dos requisitos para aprovação na disciplina Projeto Final de Curso II} } 
+
+\submitterm{Belo Horizonte-MG, 29 de novembro}
+\submityear{2021}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% ---  Para gerar versão com rodapé escrito draft, remova o comentário da linha a seguir:
+%\draft  
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INICIO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------------------------------------------------------------------------------------
+%Atualize com os seus dados de estágio
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%     Folha de rosto com informações  do Estágio  %%%%%%%%%
+\info{%
+	\textbf{\huge Informações do Estágio}
+	\vskip 1cm 
+	\begin{minipage}{0.9\textwidth}
+		\begin{itemize}
+			\item \textbf{Nome: } Nome do Autor 
+			\item \textbf{Contato:} MeuNome@mail.com
+			\item \textbf{Número da Carteira de Identidade:} MG 00000000
+			\item \textbf{Curso:} Técnico de Eletrônica
+			\item \textbf{Número de  matrícula:} 20XXXXXXXX
+			\item \textbf{Ano de Conclusão:} 20XX
+			\item \textbf{Endereço Residencial:} Rua Via Láctea, 377, apto 314,  Pampulha,  Belo Horizonte/MG, CEP 31270-901
+			\item \textbf{Empresa:} Colégio Técnico da UFMG 
+			\item \textbf{Departamento:} Setor de Eletrônica
+			\item \textbf{Endereço da Empresa: } Av. Solarium, 1927, apto 2718,  Pampulha,  Belo Horizonte/MG, CEP 31270-901
+			\item \textbf{Data de início: } dd/mm/201X 
+			\item \textbf{Total de horas cumpridas no período:} 340 horas.
+			\item \textbf{Supervisor:} Nome  Sobrenome, empresa
+			\item \textbf{Orientador:} Nome  Sobrenome, COLTEC-UFMG
+		\end{itemize}
+	\end{minipage}
+}
+%%%% Fim da Folha de Rosto 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% Título...
+\title{Recomendações para Elaborar Relatório Técnico ou Monografia}
+\author{Anísio Rogério Braga} % Modifique o nome do autor aqui
+\maketitle
+
+\normalem % Para evitar o sublinhado do pacote [ulem] com a macro \emph{}!!!
+
+%\input{capa} % Caso queira gerar uma página de capa diferente da padrão.
+
+\pagenumbering{roman} % Use Roman numbers for the frontmatter pages.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+%\input{abstract}
+\input{resumo}
+\end{abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+\listoffigures
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{acknowledgements}
+\input{agradecimentos}	 % File with my agradecimentos.tex   (same folder of master)
+\end{acknowledgements}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{arabic} % Use arabic numbers for the mainmatter.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Edite o texto de seu relatório organizando-os em pastas separadas
+% Use  subpastas para cada capítulo
+\input{cap1/cap1.tex}
+
+\input{cap2/cap2.tex}
+
+\input{cap3/cap3.tex}
+
+\input{cap4/cap4.tex}
+
+\input{cap5/cap5.tex}
+
+\input{cap6/cap6.tex}
+
+%-------------------------------------------------------------
+\appendix %-----------------------------------------------
+% Nos apêndices incluimos material de suporte utilizado na elaboração do relatório técnico mas que não foram incluídos no corpo do texto por brevidamente ou simplificação da explanação.  Tal material detalhado, se for relevante para o entendimento do relatório ou para torna-lo autosuficiente como referência podem incluir diagramas esquemáticos de plantas, processos e circuitos que foram citados no texto principal.
+% Apêndices também servem para detalhar notação, abreviações e nomenclatura utilizada no relatório. Uma lista com exemplo é fornecida neste gabarito para servir como exemplo e modelo para detalhamento. Mantenha apenas o que for estritamente usado no corpo do relatório.
+
+\input{ApendiceA/ApendiceA.tex} 
+
+%---------------------------------------------------------------------------
+% Antes da página de Referências deve ser inserido um \pagebreak para garantir que
+% as referências sejam inseridas no TOC (Sumário) com o número de página correto.
+% O comando \addcontentsline deve ser usada para inserir o título das Referências
+% no TOC.
+%---------------------------------------------------------------------------
+\pagebreak
+\addcontentsline{toc}{chapter}{Referências}
+
+%\bibliographystyle{abnt-alf}
+\bibliographystyle{apalike}
+\bibliography{ref_books,MinhasReferencias}
+%% NÃO pode haver espaço entre os databases acima!!! (:-/
+
+\end{document}

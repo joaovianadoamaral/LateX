@@ -1,0 +1,424 @@
+% !TEX encoding = UTF-8 Unicode
+\graphicspath{{figuras/}}
+
+
+% !TEX encoding = UTF-8 Unicode
+
+\chapter{Recomendações para elaboração de proposta de projeto}
+\label{cap3}
+
+
+O trabalho com o desenvolvimento de projetos propicia uma oportunidade de aprender a fazer planejamentos com o propósito de transformar uma ideia em realidade, de resolver um problema concreto (\cite{Signorelli2001}). Possibilita, ainda, ensinar de uma forma pragmática a elaborar cronogramas com objetivos parciais nos quais o trabalho rumo aos objetivos finais é avaliado permanentemente de modo a corrigir erros de processo ou mesmo de planejamento conforme ilustrado na Figura~\ref{fig:fluxogramaDeProjeto}. Espera-se que o estudante aprenda a planejar e implementar projetos, analisando dados, ponderando situações e tomando decisões. O fundamental é que o estudante tenha a oportunidade de imaginar uma ação, traçar um plano para torná-la real num tempo predeterminado, realizar esse plano, controlar o processo, responder aos acontecimentos imprevistos e chegar ao resultado esperado. O mais  importante ao final do trabalho é se houve aprendizado e não se um determinado produto ficou belíssimo ou encapsulado profissionalmente. O texto técnico que relata o desenvolvimento do projeto é normalmente corrigido pelo orientador e, se houver uma avaliação de uma banca examinadora, as sugestões desta são também repassadas ao autor para corrigir o texto antes de ser publicado. 
+
+Para se viabilizar um projeto é preciso planejar o processo em conjunto com os executores (o estudante ou uma equipe de estudantes e o orientador) e definir os critérios de avaliação. O objetivo é compartilhar com os participantes protagonistas diversos problemas de planejamento e execução de um projeto com o intuito de explicar decisões que precisem ser tomadas e orientar claramente a decisão quando ela tiver de ser tomada. 
+A criação, o planejamento e a implementação de um projeto proporcionam situações em que os protagonistas  podem aprender valores, atitudes e procedimentos de grande valia na vida profissional.
+A avaliação do projeto deve ser feita durante todo o processo (pré-proposta, desenvolvimento e conclusão do projeto), pois dela dependem os passos seguintes e os ajustes. 
+Num projeto os procedimentos, conceitos e atitudes são também parte dos conteúdos de aprendizagem. Numa linha meramente transmissiva, geralmente são trabalhados apenas fatos, conceitos e procedimentos. Já com projetos é importante que os estudantes também aprendam metodologias de estudo, seleção e pesquisa de material, que adquiram ou construam uma atitude proativa desenvolvendo iniciativa na tomada de decisões. Destaca-se ainda o desenvolvimento de atitudes, como ter responsabilidade, exprimir opiniões, fazer escolhas. 
+
+Na Figura~\ref{fig:fluxogramaDeProjeto} ilustra-se o fluxo de informação e tarefas típicas para a elaboração e execução de um projeto. Um guia  contemplando os diversos tópicos e tarefas ilustradas na Figura~\ref{fig:fluxogramaDeProjeto} é apresentado a seguir.
+
+\keyfigbox{c={Fluxograma com as diversas etapas de um projeto (adaptado de \cite{Signorelli2001}).},l=fig:fluxogramaDeProjeto}{%
+	\input{figuras/fluxogramaDeProjeto}
+}
+
+
+Elaborar uma proposta de projeto coerente, com compromissos adequados entre justificativa técnica, prazo de execução, infraestrutura e orçamento é fundamental para o sucesso da implementação da proposta. São apresentadas a seguir algumas sugestões de tópicos com orientações de redação de etapas e cronograma. Este mesmo documento (\cite{bragaAR2021}) é sugerido como gabarito de referência para redigir uma proposta técnica. 
+
+
+Os tópicos de uma proposta de Projeto Final de Curso ou Estágio Técnico com desenvolvimento de projeto são:
+
+\keyparbox[H]{f,lw=0.7}{%
+	\begin{enumerate}[noitemsep]
+		\item Título
+		\item Autor
+			\subitem Orientador
+			\subitem Supervisor
+		\item Resumo
+		\item Objetivos
+		\item Justificativa
+		\item Plano de Trabalho
+			\subitem Cronograma de atividades
+		\item Recursos financeiros e infraestratura
+		\subitem Local de realização do projeto ou estágio
+			\subitem Recursos financeioros
+			\subitem Status (aprovado em aaaa/mm/dd)
+		\item Resultados esperados
+			\subitem Público alvo
+			\subitem Publicações
+		\item Aprovação
+	\end{enumerate}
+}%
+
+Recomendações de como elaborar e apresentar uma proposta são descritas a seguir, organizados em seções deste capítulo.
+
+\section{Título do projeto}
+
+O título é considerado o resumo mais sintético do projeto e, portanto, é
+imprescindível que inclua o \emph{assunto} ou tema e a \emph{proposta} do mesmo.
+Verifique ainda se o título é:
+\begin{itemize}
+	\item  Suficientemente preciso,
+	\item  Fácil para ler e entender, e
+	\item  Estruturado para o tema e a audiência.
+\end{itemize}
+
+
+\lstset{language=[Latex]Tex, frame = single, framexleftmargin=15pt}
+\begin{lstlisting}
+	% Preâmbulo do documento
+	\begin{document}
+		\title{Título com assunto e proposta}
+		\author{Nome completo do autor }
+		\maketitle
+		%--------------------
+		Corpo do relatório
+		%--------------------
+	\end{document}
+\end{lstlisting}
+
+\section{Autor e orientadores}
+Identifique o autor da proposta, orientador e supervisor informando a unidade e a finalidade (\emph{fullfilment}) como apropriado conforme ilustrado a seguir
+
+\begin{lstlisting}
+	%--- Preâmbulo
+	\college{COLTEC-UFMG}  
+	\advisor{Orientador: Prof.  Fulano de Tal, UFMG \\
+		Supervisor: Eng. John Doe, Empresa}
+	\fulfilment{Relatório de Estágio Técnico do Projeto XYZ COLTEC/UFMG} 
+	
+	%\fulfilment{Monografia submetida à banca examinadora ...} 
+	
+	\submitterm{Belo Horizonte-MG, junho de}
+	\submityear{2021}
+	
+	\begin{document}
+		%--------------------
+		Corpo do relatório
+		%--------------------
+	\end{document}
+\end{lstlisting}
+
+
+\section{Resumo}
+O resumo deve explicitar o assunto, a proposta e o escopo do trabalho.
+Ao ler o resumo o leitor deve entender de que se trata efetivamente o
+trabalho ou projeto, o que se aborda e como se produz evidências
+(simulação, experimento, dedução teórica). Normalmente a última sentença
+do resumo trata das evidências e discussões apresentadas ou almejadas.
+
+
+\section{Objetivos}
+Relacione uma lista com os objetivos do projeto. Recomenda-se iniciar os itens com
+verbos no infinitivo. É imperativo manter o paralelismo de linguagem,
+i.e. se o primeiro item inicia-se com um verbo no infinitivo, todos os
+demais itens devem também iniciar com verbos no infinitivo!
+
+\keyparbox[H]{f,lw=0.7}{%
+	\paragraph{Objetivos}
+	\begin{itemize}
+		\item	Desenvolver uma análise teórica de ...
+		\item	Desenvolver software para...
+		\item	Desenvolver e implementar um protótipo de um sistema de instrumentação para...
+		\item Caracterizar experimentalmente o sistema de ...
+		\item	Aperfeiçoar sistemas de ...
+		\item	Pesquisar técnicas e estratégias para...
+		\item	Elaborar relatório técnico.
+		\item	Apresentar trabalho técnico para banca examinadora e equipe do
+		projeto...
+	\end{itemize}
+}
+
+\section{Justificativa}
+
+A justificativa  contempla um resumo da relevância técnica contextualizada do tema do projeto.
+Geralmente a justificativa é alinhavada com um foco em competências técnicas almejadas, destacando-se as competências já adquiridas necessárias para o desafio do desenvolvimento do projeto proposto.  
+
+É interessante  mencionar brevemente as competências técnicas da equipe incluindo orientador e supervisor. 
+Geralmente isso é feito referenciando trabalhos ou pesquisas e desenvolvimento tecnológico correlatos já conhecidos e publicados pela equipe e por terceiros. 
+
+Por fim é importante comentar alinhavando viabilidade técnica do projeto com os riscos (alto, médio ou baixo)  técnicos, financeiros e de cronograma de atividades.
+
+\section{Plano de Trabalho}
+
+É uma sequência de atividades preparatórias que precedem ações que devem estar previstas em um cronograma com metas explícitas. É nesta parte que descrevemos a \textbf{metodologia} a ser utilizada no desenvolvimento do projeto.
+
+Metas 	são alvos ou marcos pretendidos com o desenvolvimento do
+projeto ou trabalho. Detalhe as atividades enumerando-as em uma tabela,
+observando o paralelismo de linguagem. Note que é importante inferir
+alvos e datas ou períodos para necessários para se alcançar uma dada
+meta. As metas são  divididas em semanas como ilustrado num cronograma de atividades de um PFC ilustrado na Figura~\ref{fig:diagGantt} ou no caso de projeto de iniciação científica em meses como ilustrado na  tabela~\ref{tab:PlanoDeTrabalho}. 
+
+O Plano de Trabalho é o detalhamento da metodologia de desenvolvimento
+do projeto. Uma Metodologia é composta por um ou mais modelos (e.g.
+fluxograma, diagrama de atividades) e processos ou procedimentos
+(Levantamento de dados de projeto ou empíricos, análise de dificuldade,
+custo, impacto, etc.) para execução de atividades ou funções previstas
+no modelo.
+
+Descreva o assunto, a proposta e o escopo do projeto. Programe as
+atividades por etapas.
+
+\keytab[H]{lw=1, c= {Exemplo de cronograma em forma de tabela com etapas de um plano de trabalho com duração de 12 meses como nos projetos de iniciação científica.}, l=tab:PlanoDeTrabalho}{
+	\begin{tabular}{l l l l l} %
+		\toprule
+		\textbf{Item} & \textbf{Etapa}                      & \textbf{Descrição}                                                                                                                                              & \cellwrap{1cm}{\textbf{Meta}${}^{\dagger}$}   & \textbf{Indicador}      \\ \midrule
+		1    &{\cellwrap{2.5cm}{Revisão \\ bibliográfica}}      & {\cellwrap{5cm}{Pesquisas bibliográficas em artigos técnico-científicos, normas e livros técnicos. }}   & \cellwrap{1cm}{1, 2, 3} &  {\cellwrap{2.5cm}{Relatório técnico}}  \\
+		2    & {\cellwrap{2.5cm}{Aquisição de\\ equipamentos } }& {\cellwrap{5cm}{ Detalhamento técnico e especificação de instrumentos e equipamentos }}           & \cellwrap{1cm}{3,4, 7,8,9}   & {\cellwrap{2.5cm}{Especificação de compra}} \\
+		3    & {\cellwrap{2.5cm}{Modelamento e simulação} }   &  {\cellwrap{5cm}{Desenvolvimento de modelos matemáticos e estudos de casos com simulação digital. }}  & 4,5,6   & {\cellwrap{2.5cm}{Relatório  técnico}}  \\
+		4    & {\cellwrap{2.5cm}{Implementação de sistema X }}&  {\cellwrap{5cm}{Elaboração de diagramas e fluxogramas de engenharia para implementação do sistema X e suas interfaces}} & 5,6,7   &{\cellwrap{2.5cm}{Projeto básico}}\\
+		5    & {\cellwrap{2.5cm}{Ensaios e\\ validação }}       &  {\cellwrap{5cm}{Teste experimental e validação do sistema X}}    & 7,8,9   & {\cellwrap{2.5cm}{Relatório técnico}}\\
+		6   & {\cellwrap{2.5cm}{Apresentação de resultados}} &  {\cellwrap{5cm}{Elaboração de relatório técnico final e apresentação de resultados em seminário.}}  & 12      & {\cellwrap{2.5cm}{Relatório\\ técnico final \\ ou Monografia}}\\
+		\bottomrule
+	\end{tabular}
+	\footnotesize ${}^{\dagger}${Meta em meses.}
+}
+
+
+\begin{keyfigure}{lw=1,kar,	c={Cronograma de atividades típico de um projeto de final de curso com duração de 2 semestres ou 32--36 semanas apresentado como Diagrama de Gantt.},	l=fig:diagGantt}
+	\centering
+	\scalebox{0.7}{
+		\begin{ganttchart}[vgrid, hgrid,
+			newline shortcut=false,
+			bar label node/.append style={align=right, font=\footnotesize}
+			]{1}{36}
+			\gantttitle{Título com Assunto \& Proposta do PFC}{36}\ganttnewline
+			\gantttitlelist{1,...,36}{1}\ganttnewline
+			\ganttgroup{PFC 1}{1}{16}\ganttnewline
+			\ganttbar[name=T0]{Proposta}{1}{1} \ganttnewline
+			\ganttbar[name=T1]{Revisão\\ bibliográfica}{2}{4} \ganttnewline
+			\ganttbar[name=T2]{Introdução}{4}{6} \ganttnewline
+			\ganttbar[name=T3]{Implementação\\ Simulação}{4}{12} \ganttnewline
+			\ganttbar[name=T4]{Depuração}{8}{16} \ganttnewline
+			\ganttmilestone[name=Meta1]{\,}{16} 
+			\ganttgroup{PFC 2}{21}{36}\ganttnewline
+			\ganttbar[name=T5]{Implementação}{21}{24} \ganttnewline
+			\ganttbar[name=T6]{Depuração}{24}{28} \ganttnewline
+			\ganttbar[name=T7]{Experimentos \\ Adicionais}{28}{30} \ganttnewline
+			\ganttbar[name=T8]{Redação e revisão \\ da monografia}{28}{32} \ganttnewline
+			\ganttbar[name=T9]{Apresentação\\ final}{33}{36}
+			% --- links (podem ser omitidos)
+			\ganttlink{T0}{T1}
+			\ganttlink[link type=dr]{T1}{T2}
+			\ganttlink[link type=dr]{T1}{T3}
+			\ganttlink{T4}{Meta1}
+			\ganttlink{Meta1}{T5}
+			\ganttlink{T5}{T6}
+			\ganttlink[link type=dr]{T6}{T7}
+			\ganttlink[link type=dr]{T6}{T8}
+			\ganttlink{T8}{T9}
+		\end{ganttchart}
+	}% --- fim do scalebox
+\end{keyfigure}	
+
+
+\section{Recursos financeiros e infraestratura}
+
+O desenvolvimento de um projeto  requer recursos humanos, financeiros e demanda uma  infraestrutura mínima. Descreva objetivamente os recursos demandados, infraestrutura e a necessidade de financiamento por agências de fomento se for o caso. Se os recursos já estiverem disponíveis identifique a instituição que está provendo e mantendo a infraestrutura.
+
+\paragraph{Local do estágio ou realização do projeto}
+Descreva o local de referência (empresa, laboratório, unidade da universidade, etc.) no qual o projeto ou estágio será realizado. O Capítulo~\ref{cap1} do relatório técnico ou da monografia contém uma seção para descrever o local de realização do projeto ou estágio. 
+
+Descrever adequadamente as demandas de infraestrutura, materiais, equipamentos e instrumentos previstos para execução do projeto é fundamental para que o projeto seja viabilizado em tempo hábil. Muitos laboratórios possuem ambiente adequado para desenvolvimento de projetos com bancadas equipadas com computadores, instrumentação para desenvolvimento e calibração de aparelhos, ferramentas de hardware e aplicativos de software. Além disso é comum haver pequenos estoques de componentes e material de consumo. É importante incluir na proposta todas as demandas previstas seja de recursos ou material de consumo para se estimar custos ou dificuldades para o desenvolvimento do projeto. É altamente antiético usar recursos disponíveis em um laboratório sem a devida autorização dos responsáveis bem como o registro de uso de consumíveis no diário físico ou digital do laboratório.
+
+Ressalta-se que agências financiadoras devem ser explicitamente citadas por força de contrato e que, portanto, devem ser citadas junto ao resumo dos projetos.
+
+Identifique o status da proposta desde o início usando as sugestões a seguir:
+\begin{itemize}
+	\item Status:\footnote{Use um dos termos a seguir}
+	\begin{itemize}
+		\item    Anteprojeto (em elaboração)
+		\item   Submetido em aaaa/mm/dd (em avaliação)
+		\item   Aprovado em aaaa/mm/dd
+		\item   Iniciado em aaaa/mm/dd
+		\item   Concluído em 2001/02/22
+	\end{itemize}
+\end{itemize}
+
+\keyparbox[H]{f,lw=0.7}{%
+	\begin{itemize}
+		\item Recursos Financeiros
+		\begin{itemize}
+			\item    Instituição (Valor): Descrição
+			\item    FAPEMIG(R\$1,00): Material permanente
+		\end{itemize}
+		\item Status: Aprovado em aaaa/mm/dd
+	\end{itemize}
+}
+
+Note que deve-se descrever as demandas de recursos inclusive nos caso de uso de recursos próprios como computadores pessoais ou kits de desenvolvimento como kits de microcontroladores de baixo custo. 
+
+A Tabela~\ref{tab:Infraestrutura} ilustra uma forma adequada para descrever as demandas de infraestrutura e consumíveis. É importante especificar a pessoa responsável por assegurar a infraestrutura prevista bem como o tempo estimado de demanda dos recursos.
+
+\keytab[H]{lw=1, c={Detalhamento de demandas de infraestrutura, materiais, equipamentos e instrumentos
+		previstos para execução do projeto.}, l=tab:Infraestrutura}{
+	\begin{tabular}{l l l l } %
+		\toprule
+		Item     & Descrição            & \cellwrap{2.5cm}{Responsável}   & Status      \\
+		\midrule
+		1    &\cellwrap{6cm}{Laboratório/Instituição \\ Equipamento1 [1 -12]:\\ 	 Instrumentos [3 - 10]:
+			\\	 Materiais: [2 - 10]:}   & Coordenador  &  \cellwrap{2.5cm}{Disponível, Pendente,
+			Solicitado}  \\
+		2    &\cellwrap{6cm}{LEIC/COLTEC-UFMG \\ Equipamento1 [1 -12]: computador\\ 	 Instrumentos [3 - 10]: osciloscópio
+			\\	 Materiais: [2 - 10]: componentes eletrônicos diversos}   & Anísio R. Braga  &  \cellwrap{2.5cm}{Disponível}  \\
+		\bottomrule
+	\end{tabular}
+	\begin{flushleft}
+		\footnotesize{ Equipamento, instrumentos e materiais
+			são especificados por períodos relacionados às Metas, e.g. [1 -- 12]
+			significa equipamento necessário durante todo o desenvolvimento do
+			trabalho.}
+	\end{flushleft}
+}
+
+
+\section{Resultados esperados}
+
+Os resultados almejados de produção (material, produtos de hardware, software ou serviços) e capacitação técnica  (funcionais e  gerenciais),  com o desenvolvimento do projeto devem ser descritos resumidamente.
+
+\begin{enumerate}
+	\item Qualificação técnica no desenvolvimento de sistemas didáticos.
+	\item Protótipo de kits com implementação de hardware.
+	\item Protótipo de aplicativo de software.
+	\item Relatório técnico com memorial descritivo do projeto.
+\end{enumerate}
+
+
+\subsection{Público Alvo}
+
+É importante pensar a priori quem será o usuário ou consumidor dos
+resultados do projeto, pois a linguagem dos relatórios e nível de
+encapsulamento da complexidade de sistemas, softwares e procedimentos
+técnicos devem estar de acordo com a capacidade de compreensão estimado
+para o público alvo. Este item serve também para sinalizar, a princípio,
+quem poderá ter acesso às informações confidenciais.
+
+\begin{itemize}
+	\item  Estudantes de Engenharia (Elétrica/ Mecânica / Controle /Produção ,
+	etc)
+	\item  Técnicos (Eletrônica / Informática / Mecânica / Automação)
+	\item  Engenheiros (Eletricista / Mecânico /Químico)
+	\item  Gestores (Administrador /Advogado /Contador /Engenheiro)
+	\item  Equipe técnica interna.
+\end{itemize}
+
+\subsection{Publicações}
+Os relatos do trabalho técnico desenvolvido estão registrados como\footnote{Indicar em que nível se pretende divulgar e o grau de confidencialidade
+	dos documentos produzidos no âmbito do projeto.}:
+\begin{itemize}
+	\item  PFC20211210.pdf, \textbf{Acesso}: Público / Divulgação (Link ou procedimento de como obter documento).
+	\item  PeD001.zip, \textbf{Acesso:} Restrito /\textbf{Confidencial.}
+\end{itemize}
+
+\section{Aprovação}
+
+E, por estarem de acordo, os partícipes desta proposta de projeto ou estágio firmam o presente compromisso.
+
+
+Belo Horizonte, 29 de novembro de 2021  % atualize
+
+\begin{center}
+	\vspace{1.5cm}
+	
+		Autor Nome Sobrenome, curso
+
+\vspace{1.5cm}
+
+			Nome Sobrenome, Unidade,  Orientador
+
+\end{center}
+ 
+  
+\section{Exemplos de tópicos de projetos}    
+
+Uma proposta de projeto integra-se, muitas vezes, em algum sub-projeto dentro de projetos guarda-chuvas maiores de pesquisa e desenvolvimento. Portanto, é interessante apreciar as estruturas típicas de tais projetos para compreender quais os aspectos considerados ao se alinhavar justificativas técnicas, competências, infraestrutura, etc. para a realização de projetos grandes. Nas Figuras~\ref{fig:SumarioPrjPeD}  e \ref{fig:SumarioPrjConsultAI} são apresentados duas estruturas ou esboços de tópicos típicos de projetos: uma usual para pesquisa e desenvolvimento tecnológico (Figura~\ref{fig:SumarioPrjPeD}) e outra de engenharia de consultoria (Figura~\ref{fig:SumarioPrjConsultAI}).  No caso de projetos de pesquisa e desenvolvimento, a estrutura apresentada contempla variados tópicos normalmente avaliados por uma banca \emph{ad hoc} de avaliação e seleção de projetos para classificação e financiamento.
+
+\keyfigbox{f,c={Estrutura típica de um projeto de Pesquisa \& Desenvolvimento submetido às agências de fomento tais como CNPq, FAPEMIG e CAPES.},l=fig:SumarioPrjPeD}{%
+	\textbf{Projeto de Pesquisa \& Desenvolvimento}
+	\begin{enumerate}[noitemsep]
+\item Título (assunto e proposta)
+\item Equipe, e.g. coordenador(es) e colaborador(es)
+\item Folha de assinaturas dos responsáveis
+\item Motivação e justificativa
+\item Objetivos gerais e específicos
+\item Detalhamento técnico do projeto
+\item Delineamento do projeto
+	\begin{enumerate}[noitemsep]
+		\item Originalidade e inovação
+		\item Adequação da metodologia
+		\item Competência da equipe para execução do projeto
+		\item Experiência prévia da equipe na área do projeto de pesquisa
+		\item Estado da arte no campo de trabalho
+		\item Resultados esperados e benefícios para a sociedade
+		\item Envolvimento na formação de recursos humanos
+		\item Compatibilidade da infra-estrutura e dos recursos humanos indicados com a programação do projeto
+		\item Adequação do orçamento apresentado aos objetivos da proposta
+		\item Necessidade real de recursos recebidos ou solicitados.
+		\item Adequação do cronograma físico e qualidade dos indicadores de progresso técnico-científico do projeto
+		\item Relevância da proposta para com os objetivos de desenvolvimento científico ou tecnológico 
+		\item Resultados esperados e benefícios potenciais para a área de desenvolvimento científico-tecnológico
+	\end{enumerate}
+\item Apêndices
+\item Referências bibliográficas
+\end{enumerate}
+}%
+\keyfigbox{f,c={Esboço de sumário típico de um projeto de automação elaborado por empresas de consultoria para indústrias de controle de processo},l=fig:SumarioPrjConsultAI}{%
+\textbf{Projeto de Automação}
+\begin{itemize}[noitemsep]
+\item Projeto básico
+	\begin{itemize}[noitemsep]
+	\item Descritivo funcional do projeto
+	\item Arquitetura de automação 
+	\item Folhas de especificação dos equipamentos (para compra, inventário, etc)
+	\item Fluxograma de engenharia 
+	\end{itemize}
+\item Projeto detalhado
+		\begin{itemize}[noitemsep]
+			\item Diagramas de interligação
+			\item Layout de instalação de instrumentos e sala de controle.
+			\item Diagramas lógicos
+			\item Programas
+			\begin{itemize}[noitemsep]
+				\item Diagramas de fluxo de dados
+				\item Listagem dos programas
+				\item Mapas de memória de equipamentos e sistemas, e.g.  mapa de memória de CLP, mapa de memória de área de interface.
+			\end{itemize}
+			\item Descritivo operacional do sistema 
+			\begin{itemize}[noitemsep]
+				\item Descritivo dos procedimentos de partida e parada do sistema
+				\item Descritivo dos procedimentos de operação e supervisão.
+				\item Plano de manutenção.
+			\end{itemize}
+		\end{itemize}
+\end{itemize}
+}
+
+
+\section{Relatório de atividades}
+
+O Relatório de Atividades -- RA (\cite{Markel1994}) é um documento sucinto e itemizado em que se informa aos interessados sobre o andamento de um projeto e como ele será concluído. O relatório de atividades responde a seguinte questão, ``\emph{o que você fez ultimamente?}'' e quais as suas especulações sobre o trabalho futuro no projeto, sempre considerando o cronograma previamente aprovado.
+Dois modelos são comumente usados para organizar o RA conforme ilustrado na Figura~\ref{fig:ModelosRA}.
+\keyfigbox{f,c={Modelos para relatório de atividades},l=fig:ModelosRA}{%
+\begin{enumerate}[noitemsep]
+	\item Tempo: é o modelo mais simples, baseado na linha de tempo das tarefas executadas.
+		\begin{enumerate}[noitemsep]
+			\item Trabalho concluído.
+			\item Trabalho futuro.
+		\end{enumerate}
+	\item	Tarefa: é o revés do modelo Tempo com as tarefas destacadas.
+		\begin{enumerate}[noitemsep]
+			\item Tarefa A
+				\subitem Trabalho concluído.
+				\subitem Trabalho futuro.
+			\item Tarefa B
+						\subitem Trabalho concluído.
+						\subitem Trabalho futuro.
+		\end{enumerate}
+\end{enumerate}
+}%
+
+O relatório de atividades, embora seja considerado uma burocracia, é importante tanto para quem acompanha ou orienta, quanto para quem realiza as atividades manter o foco na realização daquilo que tem impacto, restrições de tempo, restrições de segurança (e.g. o experimento ou uso do laboratório requer a presença de outro profissional) e restrições de lugar (e.g. realização de experimentos em laboratório compartilhado ou com acesso restrito). Além disso, serve para antecipar dificuldades não previstas e que requeiram um realinhamento da proposta. Imprevistos e contratempos são comuns. O que é preciso evitar são situações de procrastinação inarredáveis e desconhecidas do orientador ou responsável pelo projeto. 
+
+
+\section{Comentários finais}
+
+Foi apresentado um breve guia com dicas para elaboração de uma proposta de projeto de conclusão de curso ou estágio técnico com desenvolvimento científico ou tecnológico. Este mesmo documento é recomendado como estrutura para apresentação de uma proposta de projeto, embora outros formatos sejam usuais e adequados de acordo com recomendações de cada unidade ou escola. Estruturas de projetos de pesquisa e de empresas de engenharia de consultoria forma apresentados como exemplos. Um esquema sucinto para relatório de atividades foi apresentado. Nos capítulos que se seguem, são apresentados primeiro uma metodologia para resolução de problemas em equipe e depois critérios usados para se avaliar um trabalho técnico supervisionado.

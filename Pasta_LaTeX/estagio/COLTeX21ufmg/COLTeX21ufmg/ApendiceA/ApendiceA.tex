@@ -1,0 +1,97 @@
+% !TEX encoding = UTF-8 Unicode
+
+\chapter{Lista dos principais símbolos e abreviações}
+
+\section{Abreviações}
+
+\begin{tabular}{ l l l }
+ADC 	& Conversor Analógico Digital 			&(\it{Analogue to Digital Converter})   	\\ 
+ARMA 	& Auto-Regressivo, Média Móvel 		&(\it{Auto-Regressive Moving Average})	\\ 
+CLP	 	& Potencial de desempenho de controle	&(\it{Closed Loop Potential})	\\ 
+DAC 	& Conversor  Digital Analógico			&(\it{Digital to Analogue Converter}) 		\\
+DCS 	& Sistema de Controle Distribuído		& (\it{Distributed Control system}) 		\\
+%DMC	 	& Controle de Matriz Dinâmica 			&(\it{Dynamic Matrix Control}) 			\\
+FIR 		& Resposta ao Impulso Finita 			&(\it{Finite Impulse Response})			\\
+GMV		& Mínima Variância Generalizado		&(\it{Generalized Minimum Variance}) 	\\
+GPC 	& Controle Preditivo Generalizado  		&(\it{Generalized Predictive Control})		\\
+IIR 		& Resposta ao Impulso Infinita 			&(\it{Infinite Impulse Response})		\\ 
+LITP 	& Linear nos Parâmetros 				&(\it{Linear-In The Parameters})  		\\ 
+LS 		& Mínimos Quadrados 				&(\it{Least Squares})					\\ 
+%LQ 		& Linear Quadrático 					&(\it{Linear Quadratic})				\\
+% LQG 	& Linear Quadrático Gaussiano 		&(\it{Linear Quadratic Gaussian})  		\\ 
+MIMO 	& Múltiplas Entradas, Múltiplas Saídas 	&(\it{Multi-Input, Multi-Output})			\\ 
+MISO 	& Múltiplas Entradas, Saída Única 		&(\it{Multi-Input, Single-Output}) 		\\ 
+MMRLS	& Múltiplos Modelos	RLS				&(\it{Multiple Models RLS}) 			\\ 
+MV 		& Variância Mínima 					&(\it{Minimum Variance}) 				\\ 
+PI(D) 	& Proportional + Integral (Derivativo) 	&								\\ 
+PIMS	& Sist. gerenciamento informação de processo 		& (\it{Process Information Management System})\\
+RLS 		&  Mínimos Quadrados Recursivo 		&(\it{Recursive Least Squares}) 		\\ 
+SCADA	& Sistema de Supervisão e Aquisição de Dados	& (\it{Supervisory Control and Data Acquisition}) 						 		\\ 
+SEC		& Semáforo de Estado de Componente	& 						 		\\ 
+SEM		& Semáforo de Estado de Medida		& 						 		\\ 
+SISO 	& Entrada Única, Saída Única 			&(\it{Single-Input, Single-Output}) 		\\ 
+UD		& Diagonal Superior					&(\it{Upper Diagonal})				\\
+ZOH 	& Segurador de Ordem Zero 			&(\it{Zero Order Hold}) 				\\ 
+\end{tabular}
+
+\section{Principais símbolos utilizados}
+
+\begin{tabular}{ll}
+$e(t), e, E$				& variável de erro\\
+$h$ 						& período ou intervalo de amostragem expresso em segundos \\ 
+$i,\,j,\,k$ 					& índices de valores inteiros  \\ 
+$n$						& número inteiro representando a ordem de um vetor, matriz ou polinômio \\
+$p$						& operador diferencial,  $p\overset{\Delta}{=}\frac{d}{dt}$	\\
+$q^{-1}$ 					& operador de deslocamento de atraso, e.g.  $q^{-1}y(k)=y(k-1)$ 							\\ 
+$s$						& variável complexa da Transformada de Laplace 				\\
+						& segundos\\
+$t$						& variável de tempo\\
+$t_k$					& variável de tempo discreto\\
+$u(t),\,u, U$ 				& controle escalar/ variável manipulada (\it{Manipulated Variable})\\ 
+$y(t),\,y, Y, Y_p$ 			& variável de saída de processo (\it{Process Variable})\\ 
+$w(t),\,w, W, W_r$ 			& variável de referência (\it{Setpoint Variable}) \\ 
+$z$						& variável complexa  da Transformada  Z						\\
+$\alpha$					& complemento do fator de esquecimento: $\alpha = 1 - \beta $\\
+$\beta$					& fator de esquecimento\\
+$\gamma$				& constante de ponderação, $0\le \gamma \le 1$\\
+$\delta$					& operador delta, $\delta \overset{\Delta}{=}\frac{1-q^{-1}}{h}$\\
+$\Delta$					& operador diferença  $\Delta(q^{-1}) = 1-q^{-1}$ 				\\ 
+$\lambda$					& operador lambda, $\lambda \overset{\Delta}{=}\frac{1}{p\tau+1}$\\
+$\xi (t),\,\xi $ 				& variável de ruído branco\\ 
+$\rho$					& fator  de ponderação de severidade ou criticidade\\
+$\tau$					& constante de tempo\\
+$\mathbf{\theta}$					& vetor de parâmetros\\
+$\mathbf{\phi}$					& vetor de dados\\
+$\mathbf{u}(t),\,\mathbf{u}$ 	& vetor de variável de controle ou manipulada\\ 
+$\mathbf{y}(t),\mathbf{\,y}$ 	& vetor de variável de saída do processo\\ 
+$A, B, C$ 					& polinômios no modelo ARMA $A\,y(k)=B\,u(k-1)+C\,\xi (k)$ \\
+$G(s)$ 					& função de transferência no domínio de Laplace \\ 
+$M_s$					& Máxima Sensitividade (\it{Maximum Sensitivity})\\
+$V$ 						& variável de perturbação de carga \\ 
+$Q$ 						& variável de ruído de medição
+\end{tabular}
+
+\section{Nomenclatura}
+
+\begin{tabular}{llll}
+$x,X$ 						& um valor (escalar) 			 			\\ 
+$\mathbf{x}$ 					& um vetor 				 			\\ 
+$\mathbf{X}$ 					& uma matriz 							\\
+$\mathbf{x}^{T}$ 				& transposta de $\mathbf{x}$ 				\\
+$\bar{x}$ 						& um valor médio 						\\ 
+$\hat{x}$ 						& um valor estimado 					\\ 
+$\breve{x}$ 					& um valor medido 						\\
+$\stackrel{.}{x}$ 				& derivada de $x$ 						\\  
+$x^{(n)}$ 						& n-ésima derivada de $x$, i..e $\frac{dx^n}{dt^n}$		\\  
+$\widehat{\dot{x}}$ 				& derivada filtrada de $x$ 					\\ 
+$\widehat{\bar{x}}$ 				& média de uma amostra de $x$ 			\\
+$\tilde{x}$ 						& o erro de uma estimativa				\\
+$x_{th}$ 						& um valor de limiar (\it{threshold})			\\
+$n_a$ 						& inteiro representando a ordem de um polinômio A				\\
+$\sigma _{x}$					& desvio padrão de $x$ 					\\ 
+$ s_x$						& desvio padrão de uma amostra de $x$ 		\\ 
+$\sigma _{x}^{2}, Var(x)$ 			& variância de $x$ 						\\ 
+${s}_{x}^{2}$ 					& variância de uma amostra de $x$ 			\\ 
+$\mathbf{A}(q^{-1}), \mathbf{A}$ 	& polinômio em $q^{-1}$									\\
+
+\end{tabular}

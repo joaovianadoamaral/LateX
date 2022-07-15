@@ -1,0 +1,674 @@
+% !TEX encoding = UTF-8 Unicode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Varies tweaks made to standard Latex REPORT style.
+%  IMPORTANT:
+%  To be consistent, be sure to change the heading 
+%  (Reference) from uppercase to mixed case if you use 
+%  a bibliography style file.
+%  -- Anisio Jan 98
+
+%-- Portuguese Version --------------
+
+ % PREPARING A FOREIGN LANGUAGE VERSION:
+%
+% This document style is for documents prepared in the English language.
+% To prepare a version for another language, various English words must
+% be replaced.  Many of the English words that required replacement are
+% indicated below, where we give the name of the command in which the
+% words appear, and which must be redefined, with the actual words
+% underlined.
+%
+% Other English words that need replacement can be found in the macros
+% supporting the title and approval pages.
+%
+% \tableofcontents:
+\def\contentsname{Sumário}
+%                 ~~~~~~~~
+%
+% \listoffigures:
+\def\listfigurename{Lista de Figuras}
+%                   ~~~~~~~~~~~~~~~
+%
+% \listoftables:
+\def\listtablename{Lista de Tabelas}
+%                  ~~~~~~~~~~~~~~
+%
+% \thebibliography:
+\def\bibname{Bibliografia}
+%            ~~~~~~~~~~~~
+%
+% \theindex:
+\def\indexname{Index}
+%              ~~~~~
+%
+% figure environment:
+\def\figurename{Figura}
+%               ~~~~~~
+%
+% table environment:
+\def\tablename{Tabela}
+%              ~~~~~
+%
+% \chapter:
+\def\chaptername{Capítulo }
+%                ~~~~~~~
+% \appendix:
+\def\appendixname{Apêndice}
+%                 ~~~~~~~~
+% \part
+\def\partname{Parte}
+%             ~~~~
+% abstract environment:
+\def\abstractname{Abstract}
+%                 ~~~~~~~~
+%
+% acknowledge environment:
+\def\acknowledgename{Agradecimentos}
+%                    ~~~~~~~~~~~~~~~~
+
+%-- Portuguese Version --------------
+
+
+\ProvidesFile{COLTeXufmg.sty}[1998/01/09 v1.2 LaTeX style file for COLTEC/UFMG]
+\RequirePackage[authoryear]{natbib}
+
+\DeclareOption{serifheads}{\def\@serifheads{Hello}}
+\ProcessOptions
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Define Margins and papersize a4. 
+
+\newdimen\paperheight \newdimen\paperwidth
+\paperheight 297.3mm \paperwidth 210.2mm
+
+\textheight 9in
+\textwidth 6in
+\headsep 27pt
+\footskip 36pt 
+
+%%%%%%%  Vertically center the `text vbox'  -CMC  %%%%%%%%%%%%
+\topmargin \paperheight
+\advance\topmargin -\textheight
+\divide\topmargin by 2
+\advance\topmargin -1in  % The default inch added at the top
+\advance\topmargin -\headsep
+\advance\topmargin -\headheight
+ 
+%%%%%%%  Horizontally center the `text vbox'  -CMC  %%%%%%%%%%%%
+\oddsidemargin \paperwidth
+\advance\oddsidemargin by -\textwidth
+\divide\oddsidemargin by 2
+\advance\oddsidemargin by -1in
+\evensidemargin\oddsidemargin
+
+%\advance\oddsidemargin by 0.5mm
+%\advance\evensidemargin by 0.5mm
+
+\marginparwidth 0mm
+\marginparsep 0mm
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+\newskip\foobarskip
+\foobarskip=10pt plus 5pt minus 5pt
+\newlength{\pagewidth}
+\setlength{\pagewidth}{\textwidth}
+\addtolength\pagewidth\marginparwidth
+\addtolength\pagewidth\marginparsep
+
+\newskip\backupbaselineskip \backupbaselineskip\baselineskip
+\parskip0.7\baselineskip              
+\parindent\z@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Change varies header text from upper case to mixed case.
+%  Header text for 'reference' is taken care of in 'automat.sty'.
+%  From 'report.sty'
+
+% TABLEOFCONTENTS
+%  In report style, \tableofcontents, \listoffigures, etc. are always
+%  set in single-column style.  @restonecol
+
+\@ifundefined{chapter}  {\def\tableofcontents{\section*{\contentsname\@mkboth{\contentsname}{\contentsname}}
+  \@starttoc{toc}}}
+{\def\tableofcontents{\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
+  \fi\chapter*{\contentsname\@mkboth{\contentsname}{\contentsname}}
+  \@starttoc{toc}\if@restonecol\twocolumn\fi}}
+
+% LIST OF FIGURES
+%
+\@ifundefined{chapter}
+{\def\listoffigures{\section*{\listfigurename\@mkboth
+   {\listfigurename}{\listfigurename}}\@starttoc{lof}}}
+{\def\listoffigures
+  {\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
+  \fi\chapter*{\listfigurename\@mkboth
+   {\listfigurename}{\listfigurename}}\@starttoc{lof}\if@restonecol
+    \twocolumn\fi}}
+
+% LIST OF TABLES
+%
+\@ifundefined{chapter}
+{\def\listoftables{\section*{\listtablename\@mkboth
+   {\listtablename}{\listtablename}}\@starttoc{lot}}}
+{\def\listoftables
+  {\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
+  \fi\chapter*{\listtablename\@mkboth
+   {\listtablename}{\listtablename}}\@starttoc{lot}\if@restonecol
+  \twocolumn\fi}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Manipulate Caption text.
+%  From 'report.sty'.  The same for both article and report.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \@makecaption{NUMBER}{TEXT} : Macro to make a figure or table caption.  
+%      NUMBER : Figure or table number--e.g., 'Figure 3.2' 
+%      TEXT   : The caption text.
+% My modifications: 1.  Caption font size can be changed by changing
+%                       the \def of \capfontsize.
+%                   2.  When the caption is longer than \textwidth -
+%                       2\indentamount, typeset the caption with the
+%                       'Figure x:' part stick out like a hanging
+%                       paragraph.  The whole thing is centred and the
+%                       total width is \textwidth-2\indentamount.
+%                   3.  You can change \indentamount to change the
+%                       caption width.
+%                   4.  \baselinestretch for caption is always 1.
+%                   5.  New skips \capbeforeskip and \capafterskip 
+%                       allow tailoring of space around captions. 
+%                       Useful when table caption above the table 
+%                       is preferred.  Macros \figcap and \tabcap
+%                        set the default sizes.
+% /Billy April 95
+
+\newdimen\indentamount  
+\newskip\capbeforeskip  
+\newskip\capafterskip  
+
+\def\figcap{\capbeforeskip10\p@\capafterskip\z@}  % for figure captions
+\def\tabcap{\capbeforeskip\z@\capafterskip10\p@}  % for table captions
+
+\figcap  % Default as figure caption
+\long\def\@makecaption#1#2{
+   {\renewcommand{\baselinestretch}{1}  % Return to single-space
+   \vskip\capbeforeskip 
+       %%%  Define your caption size preference  %%%
+       \def\capfontsize{\small}
+           \indentamount \hsize
+           \divide\indentamount by 10 
+   \setbox\@tempboxa\hbox{\capfontsize  #1: #2\hskip 2\indentamount}
+   \ifdim \wd\@tempboxa >\hsize   % IF longer than one line:
+          {\setbox\@tempboxa=\hbox{\capfontsize #1: }\leavevmode%
+           \hfill\hbox{\capfontsize #1: }%
+            \vtop{\advance\hsize by -\wd\@tempboxa
+                   \advance\hsize by -2\indentamount
+                   \noindent\capfontsize #2}\hfill} 
+     \else     %   ELSE  center.
+       \hbox to\hsize{\hfil\capfontsize #1: #2\hfil}
+   \fi\vskip\capafterskip}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Make the space at the top of 'chapter pages' smaller.  It was
+% \vspace*{50pt}.  Chapter heading printed in San Serif 
+% Taken from report.cls
+
+
+\@ifundefined{chapter}{}{
+\def\@makechapterhead#1{%
+  \vspace*{0\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+        \huge\bfseries\sffamily \@chapapp{} \thechapter
+        \par\nobreak
+        \vskip 20\p@
+    \fi
+    \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    \vskip 40\p@
+  }}}
+
+\@ifundefined{chapter}{}{
+\def\@makeschapterhead#1{%
+  \vspace*{0\p@}%
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries\sffamily  #1\par\nobreak
+    \vskip 40\p@
+  }}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  All section headings printed in San Serif.
+
+\@ifundefined{@serifheads}{}{%
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                          {-3.5ex \@plus -1ex \@minus -.2ex}%
+                          {2.3ex \@plus.2ex}%
+                          {\normalfont\Large\bfseries\sffamily}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                          {-3.25ex\@plus -1ex \@minus -.2ex}%
+                          {1.5ex \@plus .2ex}%
+                          {\normalfont\large\bfseries\sffamily}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+                          {-3.25ex\@plus -1ex \@minus -.2ex}%
+                          {1.5ex \@plus .2ex}%
+                          {\normalfont\normalsize\bfseries\sffamily}}
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+                          {3.25ex \@plus1ex \@minus.2ex}%
+                          {-1em}%
+                          {\normalfont\normalsize\bfseries\sffamily}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
+                          {3.25ex \@plus1ex \@minus .2ex}%
+                          {-1em}%
+                          {\normalfont\normalsize\bfseries\sffamily}}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%  Here's the modified eqnarray environment column     %%%%%%%%
+%%%%%  separation changed from 2\arraycolsep to 0.28em.    %%%%%%%%
+%%%%%  Section taken from latex.tex.  -CMC 3/4/95          %%%%%%%%
+
+
+\def\eqnarray{\stepcounter{equation}\let\@currentlabel=\theequation
+\global\@eqnswtrue
+\global\@eqcnt\z@\tabskip\@centering\let\\=\@eqncr
+$$\halign to \displaywidth\bgroup\@eqnsel\hskip\@centering
+  $\displaystyle\tabskip\z@{##}$&\global\@eqcnt\@ne 
+  \hskip 0.28em \hfil${##}$\hfil
+  &\global\@eqcnt\tw@ \hskip 0.28em $\displaystyle\tabskip\z@{##}$\hfil 
+   \tabskip\@centering&\llap{##}\tabskip\z@\cr}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%  Change the default Widow and orphan penalties       %%%%%%
+%%%%%%  Default is 150 for both.                            %%%%%%
+\widowpenalty=8000
+\clubpenalty=8000
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%  The default LaTeX item enviroments put too much     %%%%%%
+%%%%%%  space between SHORT items due to \parsep+\itemsep   %%%%%%
+%%%%%%  between items, when \parsep\not=0.                  %%%%%%
+%%%%%%  Short means single-line or small single-paragraph.  %%%%%%
+%%%%%%  No problems for multi-paragraph items.              %%%%%%
+%%%%%%  The 'short' versions have \itemsep=0 and they are   %%%%%%
+%%%%%%  for short items, eg. sitemize, senumerate and       %%%%%%
+%%%%%%  sdescription.                                       %%%%%%
+%%%%%%  /Billy April 95                                     %%%%%%
+
+\newenvironment{sitemize}{\begin{itemize}\itemsep=\z@}%
+{\end{itemize}}
+\newenvironment{senumerate}{\begin{enumerate}\itemsep=\z@}%
+{\end{enumerate}}
+\newenvironment{sdescription}{\begin{description}\itemsep=\z@}%
+{\end{description}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Desired Header.  The position of the decorative line is fixed.
+% Stolen from fancyheadings.sty version 1.7.  /Billy Chow Jan 95.
+%-----------------------------------------------------------------
+
+\def\lhead{\@ifnextchar[{\@xlhead}{\@ylhead}}
+\def\@xlhead[#1]#2{\gdef\@elhead{#1}\gdef\@olhead{#2}}
+\def\@ylhead#1{\gdef\@elhead{#1}\gdef\@olhead{#1}}
+
+\def\chead{\@ifnextchar[{\@xchead}{\@ychead}}
+\def\@xchead[#1]#2{\gdef\@echead{#1}\gdef\@ochead{#2}}
+\def\@ychead#1{\gdef\@echead{#1}\gdef\@ochead{#1}}
+
+\def\rhead{\@ifnextchar[{\@xrhead}{\@yrhead}}
+\def\@xrhead[#1]#2{\gdef\@erhead{#1}\gdef\@orhead{#2}}
+\def\@yrhead#1{\gdef\@erhead{#1}\gdef\@orhead{#1}}
+
+\def\lfoot{\@ifnextchar[{\@xlfoot}{\@ylfoot}}
+\def\@xlfoot[#1]#2{\gdef\@elfoot{#1}\gdef\@olfoot{#2}}
+\def\@ylfoot#1{\gdef\@elfoot{#1}\gdef\@olfoot{#1}}
+
+\def\cfoot{\@ifnextchar[{\@xcfoot}{\@ycfoot}}
+\def\@xcfoot[#1]#2{\gdef\@ecfoot{#1}\gdef\@ocfoot{#2}}
+\def\@ycfoot#1{\gdef\@ecfoot{#1}\gdef\@ocfoot{#1}}
+
+\def\rfoot{\@ifnextchar[{\@xrfoot}{\@yrfoot}}
+\def\@xrfoot[#1]#2{\gdef\@erfoot{#1}\gdef\@orfoot{#2}}
+\def\@yrfoot#1{\gdef\@erfoot{#1}\gdef\@orfoot{#1}}
+
+\newdimen\headrulewidth
+\newdimen\footrulewidth
+\newdimen\plainheadrulewidth
+\newdimen\plainfootrulewidth
+\newdimen\headwidth
+\newif\if@fancyplain \@fancyplainfalse
+\def\fancyplain#1#2{\if@fancyplain#1\else#2\fi}
+
+% Command to reset various things in the headers:
+% a.o.  single spacing (taken from setspace.sty)
+% and the catcode of ^^M (so that epsf files in the header work if a
+% verbatim crosses a page boundary)
+\def\fancy@reset{\restorecr
+ \def\baselinestretch{1}%
+ \ifx\undefined\@newbaseline% NFSS not present; 2.09 or 2e
+  \ifx\@currsize\normalsize\@normalsize\else\@currsize\fi%
+ \else% NFSS (2.09) present
+  \@newbaseline%
+ \fi}
+
+% Put together a header or footer given the left, center and
+% right text, fillers at left and right and a rule.
+% The \lap commands put the text into an hbox of zero size,
+% so overlapping text does not generate an errormessage.
+
+\def\@fancyhead#1#2#3#4#5{#1\hbox to\headwidth{\fancy@reset\vbox{\hbox
+{\rlap{\parbox[b]{\headwidth}{\raggedright#2\strut}}\hfill
+\parbox[b]{\headwidth}{\centering#3\strut}\hfill
+\llap{\parbox[b]{\headwidth}{\raggedleft#4\strut}}}\headrule}}#5}
+
+
+\def\@fancyfoot#1#2#3#4#5{#1\hbox to\headwidth{\fancy@reset\vbox{\footrule
+\hbox{\rlap{\parbox[t]{\headwidth}{\raggedright#2\strut}}\hfill
+\parbox[t]{\headwidth}{\centering#3\strut}\hfill
+\llap{\parbox[t]{\headwidth}{\raggedleft#4\strut}}}}}#5}
+
+\def\headrule{{\if@fancyplain\headrulewidth\plainheadrulewidth\fi
+\hrule\@height\headrulewidth\@width\headwidth \vskip-\headrulewidth}}
+
+\def\footrule{{\if@fancyplain\footrulewidth\plainfootrulewidth\fi
+\vskip-0.3\normalbaselineskip\vskip-\footrulewidth
+\hrule\@width\headwidth\@height\footrulewidth\vskip0.3\normalbaselineskip}}
+
+\def\ps@fancy{
+\def\@mkboth{\protect\markboth}
+\@ifundefined{chapter}{\def\sectionmark##1{\markboth
+{\ifnum \c@secnumdepth>\z@
+ \thesection\hskip 1em\relax \fi ##1}{}}
+\def\subsectionmark##1{\markright {\ifnum \c@secnumdepth >\@ne
+ \thesubsection\hskip 1em\relax \fi ##1}}}
+{\def\chaptermark##1{\markboth {\ifnum \c@secnumdepth>\m@ne
+  \chaptername \thechapter:\ \fi ##1}{}}
+\def\sectionmark##1{\markright{\ifnum \c@secnumdepth >\z@
+ \thesection \ \fi ##1}}}
+\ps@@fancy
+\global\let\ps@fancy\ps@@fancy
+\headwidth\textwidth}
+\def\ps@fancyplain{\ps@fancy \let\ps@plain\ps@plain@fancy}
+\def\ps@plain@fancy{\@fancyplaintrue\ps@@fancy}
+\def\ps@@fancy{
+\def\@oddhead{\@fancyhead\@lodd\@olhead\@ochead\@orhead\@rodd}
+\def\@oddfoot{\@fancyfoot\@lodd\@olfoot\@ocfoot\@orfoot\@rodd}
+\def\@evenhead{\@fancyhead\@rodd\@elhead\@echead\@erhead\@lodd}
+\def\@evenfoot{\@fancyfoot\@rodd\@elfoot\@ecfoot\@erfoot\@lodd}
+}
+\def\@lodd{\if@reversemargin\hss\else\relax\fi}
+\def\@rodd{\if@reversemargin\relax\else\hss\fi}
+
+\let\latex@makecol\@makecol
+\def\@makecol{\let\topfloat\@toplist\let\botfloat\@botlist\latex@makecol}
+\def\iftopfloat#1#2{\ifx\topfloat\empty #2\else #1\fi}
+\def\ifbotfloat#1#2{\ifx\botfloat\empty #2\else #1\fi}
+\def\iffloatpage#1#2{\if@fcolmade #1\else #2\fi}
+
+%%%%  Define \draft macro for printing drafts
+\def\draft{%
+%% Getting the time and using it via \now
+%%  Got it from Drafts.sty.
+\newcount\hour
+\newcount\minute
+\hour=\time
+\divide \hour by 60
+\minute=\time
+\loop \ifnum \minute > 59 \advance \minute by -60 \repeat
+\def\now{%
+\ifnum \hour<13
+\ifnum \hour<1 12:\else\number\hour:\fi
+\ifnum \minute<10 0\fi                 
+\number\minute%                      
+\ifnum \hour<12 \ AM \else \ PM \fi
+\else \advance \hour by -12 \number\hour:%
+\ifnum \minute<10 0\fi            
+\number\minute%                 
+\ PM \fi%
+\overfullrule=5pt   % put a mark next to all overfull lines
+}
+%%%%   Set draft header and footer 
+\headrulewidth          0.4pt
+\footrulewidth          0.4pt
+\plainheadrulewidth     0pt
+\plainfootrulewidth     0.4pt
+%
+%
+\lhead{\fancyplain{}{\sf \leftmark}}
+\chead{\fancyplain{}{}}
+\rhead{\fancyplain{}{\sf \thepage}}
+%
+\lfoot{\fancyplain{\tt \today\ -\ \now\ [\jobname.tex]}
+        {\tt \today\ -\ \now\ [\jobname.tex]}}
+\cfoot{\fancyplain{\sf \thepage}{}} 
+%\rfoot{\fancyplain{\fbox{\bf CONFIDENCIAL}}{\fbox{\bf CONFIDENCIAL}}}
+
+ \rfoot{\fancyplain{\fbox{\bf DRAFT}}{\fbox{\bf DRAFT}}}
+}
+
+%%%%  Default header and footer  %%%%
+\headrulewidth          0.4pt
+\footrulewidth          0pt
+\plainheadrulewidth     0pt
+\plainfootrulewidth     0pt
+%
+%
+\lhead{\fancyplain{}{\sf \leftmark}}
+\chead{\fancyplain{}{}}
+\rhead{\fancyplain{}{\sf \thepage}}
+%
+\lfoot{}
+\cfoot{\fancyplain{\sf \thepage}{}} 
+\rfoot{}
+
+\pagestyle{fancyplain}
+\advance\headheight by 5\p@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLEPAGE DOCUMENT-STYLE OPTION - released 16 June 1991
+%    for LaTeX version 2.09
+% Copyright (C) 1991 by Leslie Lamport
+%\typeout{Document Style Option `titlepage' -- Released 16 June 1991.}
+% Modified for UFMG thesis and articles.  
+
+\@ifundefined{chapter}{%  articles
+\def\@maketitle{\newpage
+ \null
+ \vskip 0.5em                 % Vertical space above title.
+ \begin{center}
+  {\LARGE\@title \par}     % Title set in \LARGE size. 
+  \vskip 1.5em                % Vertical space after title.
+  {\large                        % each author set in \large, in a
+   \lineskip .5em           % tabular environment
+   \begin{tabular}[t]{c}\@author 
+   \end{tabular}\par}                   
+  \vskip 1em              % Vertical space after author.
+  {\large \@date}           % Date set in \large size.
+\end{center}
+ \par
+ \vskip 1.5em}                % Vertical space after date.
+
+\def\abstract{\if@twocolumn
+\section*{Abstract}
+\else \small 
+\begin{center}
+  {\bfseries Abstract\vspace{-.5em}\vspace{0pt}} 
+\end{center}
+\quotation 
+\fi}
+%
+%\def\endabstract{\if@twocolumn\else\endquotation\fi}
+}{%  Thesis
+
+%%%%%  New fields for UFMG thesis
+\def\college#1{\def\@college{#1}}  % Your college = 'Unidade'
+\def\advisor#1{\def\@advisor{#1}}  % Your Advisor (orientador)
+\def\submitterm#1{\def\@submitterm{#1}}% Michaelmas, Hilary or Trinity
+\def\submityear#1{\def\@submityear{#1}}% Year
+\def\info#1{%                % Information about the company ...
+     \def\@info{#1}}  
+\def\dedication#1{%                % Dedictated to ...
+     \def\@dedication{#1}}        
+
+\def\fulfilment#1{\def\@fulfilment{#1}} % Fullfilment
+
+
+\def\checkinfo{%
+\@ifundefined{@college}{\typeout
+{>>>>>> WARNING: College undefined <<<<<<}
+\gdef\@college{}}{}
+\@ifundefined{@submitterm}{\typeout
+{>>>>>>>> WARNING: Term undefined <<<<<<<}
+\gdef\@submitterm{}}{}
+\@ifundefined{@submityear}{\gdef\@submityear{\number\year}}{}
+}
+
+%-----------------------------------------------------------
+% Definition of the cover page 
+%
+\def\maketitle{%
+{\baselineskip\backupbaselineskip% Single-spaced
+\checkinfo
+\begin{titlepage}
+ \let\footnotesize\small
+ \let\footnoterule\relax
+ \setcounter{page}{0}%
+ \null
+ \vfil
+% \vskip 60\p@
+ \begin{center}%
+   {\huge \bfseries\sffamily \@title \par}%
+   \vskip 35\p@
+   {\Large
+     \lineskip .75em
+     \begin{tabular}[t]{c}\@author
+     \end{tabular}\par}%
+    \vskip 5\p@
+   {\Large \@college, UFMG \par}%
+   \vskip 80\p@
+   
+% Logomarca do COLTEC-UFMG
+%-----------------------------------------------------------------------------
+ \includegraphics[width=4cm]{./COLTECufmgLogo}   % Replace this file with the image you'd like!
+%---------------------------------------------------------------------------- 
+      \vskip 50\p@
+%  \vskip 200\p@
+    {\@fulfilment \par}%
+  \vskip 20\p@
+   {\@advisor \par}%
+   \vskip 20\p@
+    {\Large \@submitterm\ \@submityear\par}%
+\end{center}\par
+\@thanks
+\vfil
+\null
+\end{titlepage}
+%-----------------------------------------------------------
+\@ifundefined{@info}{}{%
+	\begin{titlepage}%
+		\renewcommand{\baselinestretch}{1}%
+		\null
+		%      \setcounter{page}{0}%
+		%      \thispagestyle{empty}%
+		\vspace*{4em} %
+		%      \beginRightQuote
+		\baselineskip\backupbaselineskip
+		\large\@info
+		%      \endRightQuote 
+	\end{titlepage}%
+}%
+
+\@ifundefined{@dedication}{}{%
+\begin{titlepage}%
+    \renewcommand{\baselinestretch}{1}%
+      \null
+%      \setcounter{page}{0}%
+%      \thispagestyle{empty}%
+      \vspace*{4em} %
+%      \beginRightQuote
+      \baselineskip\backupbaselineskip
+      \large\@dedication
+%      \endRightQuote 
+   \end{titlepage}%
+}%
+\setcounter{footnote}{0}%
+\gdef\thanks{}
+\gdef\@thanks{}
+%\gdef\@author{}\gdef\@title{}  % To be used in Abstract environment
+\let\maketitle\relax}}
+
+
+\def\abstract{\titlepage
+\null\vfil \vskip -5em
+\renewcommand{\thanks}[1]{} % Do not print the content of thanks again
+\begingroup\baselineskip\backupbaselineskip % Single-spaced
+\begin{center}
+  {\Large \bf \@title\par}%
+  \vskip 10\p@
+  {\large \@author}%
+  \vskip 2\p@
+  {\large \@college, UFMG \par}%
+  \vskip 15\p@
+% \fulfilment         % remove the comment of this line if you want the fulfilment comments to appear at the abstract page
+  \vskip 5\p@
+  \@submitterm\ \@submityear \par
+  \vskip 20\p@
+  \bf \abstractname
+\end{center}}
+
+\def\endabstract{\par\endgroup\vfil\null\endtitlepage}
+
+%%  Acknowledgements environment
+\def\acknowledgements{\titlepage
+\null\vfil
+\begingroup\baselineskip\backupbaselineskip% Single-spaced
+\begin{center}
+ \large\bf \acknowledgename
+\end{center}}
+
+\def\endacknowledgements{\par\endgroup\vfil\null\endtitlepage}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%  Make heading without the `Ch.' bit for   %%%%%%%%%%%%
+%%%%%%%%%  appendix pages in report class. April 96 %%%%%%%%%%%%     
+%%%%%%%%%  From classes.dtx                         %%%%%%%%%%%%
+
+\renewcommand\appendix{\par%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\@ifundefined{chapter}{\def\sectionmark##1{\markboth
+{\ifnum \c@secnumdepth>\z@
+ \thesection\hskip 1em\relax \fi ##1}{}}
+\def\subsectionmark##1{\markright {\ifnum \c@secnumdepth >\@ne
+ \thesubsection\hskip 1em\relax \fi ##1}}}
+{\def\chaptermark##1{\markboth {\ifnum \c@secnumdepth>\m@ne
+  \appendixname \thechapter:\ \fi ##1}{}}
+\def\sectionmark##1{\markright{\ifnum \c@secnumdepth >\z@
+ \thesection \ \fi ##1}}}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%         
+  \setcounter{chapter}{0}%
+  \setcounter{section}{0}%
+  \renewcommand\@chapapp{\appendixname}%
+  \renewcommand\thechapter{\@Alph\c@chapter}}     
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  From natbib.sty                   %%%%
+%%%  - Changed headings to mixed case  %%%%
+%%%  - bibname=refname                 %%%%
+\providecommand{\bibname}{}
+\renewcommand{\bibname}{Refer\^{e}ncias}%<--%%%%
+\@ifundefined{chapter}%
+  {\renewcommand\bibsection{\section*{\refname
+    \@mkboth{\refname}{\refname}}}}
+  {\renewcommand\bibsection{\chapter*{\bibname
+   \@mkboth{\bibname}{\bibname}}}}
+
+\endinput

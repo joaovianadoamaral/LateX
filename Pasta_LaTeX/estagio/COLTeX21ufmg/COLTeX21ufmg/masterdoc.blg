@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: masterdoc.aux
+The style file: apalike.bst
+Database file #1: ref_books.bib
+Database file #2: MinhasReferencias.bib
+Repeated entry---line 23 of file MinhasReferencias.bib
+ : @book{Horowitz:1981307
+ :                       ,
+I'm skipping whatever remains of this entry
+Warning--entry type for "Matlab" isn't style-file defined
+--line 56 of file MinhasReferencias.bib
+Warning--entry type for "JabRef2021" isn't style-file defined
+--line 108 of file MinhasReferencias.bib
+You've used 13 entries,
+            1935 wiz_defined-function locations,
+            548 strings with 5294 characters,
+and the built_in function-call counts, 3691 in all, are:
+= -- 352
+> -- 124
+< -- 13
++ -- 40
+- -- 38
+* -- 255
+:= -- 703
+add.period$ -- 37
+call.type$ -- 13
+change.case$ -- 76
+chr.to.int$ -- 13
+cite$ -- 13
+duplicate$ -- 166
+empty$ -- 262
+format.name$ -- 53
+if$ -- 698
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 11
+newline$ -- 65
+num.names$ -- 39
+pop$ -- 81
+preamble$ -- 1
+purify$ -- 84
+quote$ -- 0
+skip$ -- 126
+stack$ -- 0
+substring$ -- 158
+swap$ -- 14
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 68
+warning$ -- 0
+while$ -- 26
+width$ -- 0
+write$ -- 159
+(There was 1 error message)
